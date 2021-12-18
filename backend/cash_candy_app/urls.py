@@ -1,6 +1,12 @@
 from django.urls import path
 from rest_framework.routers import DefaultRouter
-from cash_candy_app.views import ChildViewSet, WishListViewSet, ItemViewSet, AllowanceListViewSet, AllowanceDetailViewSet
+from cash_candy_app.views import UserList, ChildViewSet, WishListViewSet, ItemViewSet, AllowanceListViewSet, AllowanceDetailViewSet
+from .views import current_user, UserList
+
+urlpatterns = [
+    path('current_user/', current_user),
+    path('users/', UserList.as_view())
+]
 
 # create router instance
 r = DefaultRouter()
@@ -13,4 +19,4 @@ r.register(r"transaction", AllowanceListViewSet, basename="transactions")
 r.register(r"detail", AllowanceDetailViewSet, basename="transaction-detail")
 
 # get urls
-urlpatterns = r.urls
+urlpatterns += r.urls
