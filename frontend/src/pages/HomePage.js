@@ -1,14 +1,33 @@
-// import { redirectToLogin }  from "../api/authentication.js"
-import getProducts from "../auth/GetToken";
-import StoreAccess from "../auth/GetToken";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function HomePage(props) {
-    return (
+const HomePage = ({ isLoggedIn, user, handleLogout }) => {
+
+  return (
+    <div>
+      <h1>Home Page</h1>
+      {
+        user &&
         <div>
-            <h2>Home Page</h2>
-            < getProducts />
+          Hi {user.username}
         </div>
-    )
-}
+      }
+      {
+        !isLoggedIn
+        ?
+        <div>
+          <div>
+            <Link to='/login'>Login</Link>
+          </div>
+          <div>
+            <Link to='/signup'>Signup</Link>
+          </div>
+        </div>
+        :
+        <button onClick={handleLogout}>Logout</button>
+      }
+    </div>
+  );
+};
 
 export default HomePage;
