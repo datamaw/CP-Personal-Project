@@ -3,6 +3,9 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+//components
+import Navbar from './components/Navbar';
+
 // pages
 import HomePage from './pages/HomePage';
 import KidMainPage from './pages/KidMainPage';
@@ -81,6 +84,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route exact path="/cashandcandy" element={ <HomePage />} />
           <Route exact path="/login" render={renderLoginPage} />
