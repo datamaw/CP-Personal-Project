@@ -15,7 +15,7 @@ function HomePage() {
   useEffect(() => {
     const getChildList = async () => {
       const data = await BackendAPI.fetchChildList()
-      console.log(data)
+      // console.log(data)
       if (data) {
         setChildList(data)
         console.log(childList)

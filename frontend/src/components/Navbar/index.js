@@ -31,7 +31,7 @@ const Navbar = () => {
                 <NavLink to="/contact" activeStyle>
                     Contact
                 </NavLink>
-                <NavLink to="/parents" activeStyle>
+                <NavLink to="/cashandcandy/parents" activeStyle>
                     For Parents Only
                 </NavLink>
                 <NavLink to="/signin" activeStyle>

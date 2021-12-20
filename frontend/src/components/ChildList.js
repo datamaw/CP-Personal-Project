@@ -27,7 +27,7 @@ function ChildList(props) {
           <thead>
             <tr>
               {/* <th>#</th> */}
-              <th>Click on Your Name to Enter!</th>
+              <th>Child Accounts</th>
               {/* <th>Price</th>
               <th>Varietal</th>
               <th>Description</th> */}

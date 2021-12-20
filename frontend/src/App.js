@@ -19,6 +19,7 @@ import Parents from  './pages/Parents';
 
 //router
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import EditChildPage from './pages/EditChild';
 
 function App() {
 
@@ -94,7 +95,8 @@ function App() {
           <Route exact path="/cashandcandy/:childID" element={ <KidMainPage />} />
           <Route exact path="/cashandcandy/additem" element={ <AddWishItemPage />} />
           <Route exact path="/cashandcandy/addchild" element={ <AddChild />} />
-          <Route exact path="/cashandcandy/parents" element={ <Parents.js />} />
+          <Route exact path="/cashandcandy/parents" element={ <Parents />} />
+          <Route exact path="/cashandcandy/editchild" element={ <EditChildPage />} />
           {/* <Route exact path="/cashandcandy/callback" element={ <CallBackPage/>} /> */}
         </Routes>
       </BrowserRouter>

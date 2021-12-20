@@ -4,7 +4,7 @@ import BackendAPI from '../api/BackendAPI.js'
 import { Navigate } from 'react-router'
 import UserContext from '../contexts/UserContext.js'
 
-class AddChildPage extends Component {
+class EditChildPage extends Component {
   state = {
     redirect: false
   }
@@ -24,7 +24,7 @@ class AddChildPage extends Component {
   render() {
     const { redirect } = this.state
     if (redirect) {
-      return <Navigate to = "/cashandcandy" />
+      return <Navigate to = "/cashandcandy/parents" />
     }
 
     return (
@@ -40,6 +40,11 @@ class AddChildPage extends Component {
             <Form.Control/>
           </Form.Group>
 
+          {/* <Form.Group controlId="varietal">
+            <Form.Label>Parent's Username</Form.Label>
+            <Form.Control/>
+          </Form.Group> */}
+
           <Button variant="primary" type="submit">
             Submit
           </Button>
@@ -49,4 +54,4 @@ class AddChildPage extends Component {
   }
 }
 
-export default AddChildPage
+export default EditChildPage
