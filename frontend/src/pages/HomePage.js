@@ -29,10 +29,9 @@ function HomePage() {
     
     <div>
       {/* <h1>Welcome!</h1> */}
-      <div style={{ 
-      backgroundImage: `url("https://thumbs.dreamstime.com/b/golden-chocolate-coins-close-up-63893694.jpg")` 
-    }}>
-       <h1>WELCOME</h1>
+      <div>
+       <h1></h1>
+       <img src="https://w7.pngwing.com/pngs/196/872/png-transparent-lollipop-eating-candy-graphy-child-eating-food-face-toddler.png" className="homephoto" alt="lollipop" />
       </div>
       <ChildList childList={childList} />
       {

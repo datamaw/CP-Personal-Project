@@ -24,7 +24,7 @@ const fetchChildList = async () => {
 }
 
 const fetchChild = async (childID) => {
-    const url = BASE_URL + `{child}/` + `{childID}`
+    const url = BASE_URL + 'child/' + `${childID}`
     return await tryCatchFetch(url)
 }
 

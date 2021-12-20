@@ -10,6 +10,8 @@ import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import KidMainPage from './pages/KidMainPage';
 import AddWishItemPage from './pages/AddWishItem';
+import AddChild from './pages/AddChild';
+import Parents from  './pages/Parents';
 // import LoginPage from './pages/LoginPage';
 // import SignupPage from './pages/SignupPage';
 // import { getLoggedInUser, login } from './api/UserAPI';
@@ -91,6 +93,8 @@ function App() {
           <Route exact path="/signup" component={SignupPage} /> */}
           <Route exact path="/cashandcandy/:childID" element={ <KidMainPage />} />
           <Route exact path="/cashandcandy/additem" element={ <AddWishItemPage />} />
+          <Route exact path="/cashandcandy/addchild" element={ <AddChild />} />
+          <Route exact path="/cashandcandy/parents" element={ <Parents.js />} />
           {/* <Route exact path="/cashandcandy/callback" element={ <CallBackPage/>} /> */}
         </Routes>
       </BrowserRouter>

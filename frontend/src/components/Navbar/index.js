@@ -16,13 +16,13 @@ const Navbar = () => {
     return (
         <>
            <Nav>
-            <NavLogo to="/">
+            <NavLogo to="/cashandcandy">
                 Cash & Candy
             </NavLogo>
             <Bars />
 
             <NavMenu>
-                <NavLink to="/" activeStyle>
+                <NavLink to="/cashandcandy" activeStyle>
                     Home
                 </NavLink>
                 <NavLink to="/about" activeStyle>
@@ -30,6 +30,9 @@ const Navbar = () => {
                 </NavLink>
                 <NavLink to="/contact" activeStyle>
                     Contact
+                </NavLink>
+                <NavLink to="/parents" activeStyle>
+                    For Parents Only
                 </NavLink>
                 <NavLink to="/signin" activeStyle>
                     Sign In
