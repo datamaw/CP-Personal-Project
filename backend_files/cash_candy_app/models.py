@@ -4,7 +4,8 @@ from django.contrib.auth.models import User  #import django user model
 
 class Child(models.Model):
     first_name = models.CharField(max_length=32, null=False)
-    date_of_birth = models.DateTimeField(null=True, blank=True)
+    # date_of_birth = models.CharField(max_length=32, null=True, blank=True)
+    age = models.IntegerField(null=True, blank=True)
     user = models.ForeignKey(User, related_name="children", on_delete=models.CASCADE) #one user to possibly many children - foreign key 
 
     def __str__(self):
@@ -24,7 +25,7 @@ class Item(models.Model):
     item_id = models.CharField(max_length=64, null=True)
     item_price = models.DecimalField(max_digits=6, decimal_places=2, null=False)
     item_image = models.ImageField(null=True, blank=True)
-    date_added = models.DateTimeField(auto_now_add=True)
+    date_added = models.CharField(max_length=32, null=True, blank=True)
     purchased = models.BooleanField(default=False)
 
     def __str__(self):
@@ -40,7 +41,7 @@ class AllowanceList(models.Model):
 class AllowanceDetail(models.Model):
     transaction_description = models.TextField(null=False)
     allowancelist = models.ForeignKey(AllowanceList, related_name="allowance_detail", on_delete=models.CASCADE)  #one list to many transactions - foreign key
-    transaction_date = models.DateTimeField(null=False)
+    transaction_date = models.CharField(max_length=64, null=False)
     transaction_amount = models.DecimalField(max_digits=6, decimal_places=2, null=False)    
 
     def __str__(self):

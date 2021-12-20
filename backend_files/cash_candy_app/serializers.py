@@ -44,7 +44,7 @@ class UserSerializerWithToken(serializers.ModelSerializer):
 class ChildSerializer(ModelSerializer):
     class Meta:
         model = Child
-        fields = ["id", "first_name", "date_of_birth", "user"]
+        fields = ["id", "first_name", "age", "user"]
 
     #display username instead of id
     def to_representation(self, child):
