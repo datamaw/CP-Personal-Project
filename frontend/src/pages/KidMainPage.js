@@ -3,11 +3,15 @@ import { Button } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'  //to use id from url
 import BackendAPI from "../api/BackendAPI"
 import DogAPI from "../api/DogAPI"
+import KrogerAPI from "../api/KrogerAPI"
+// import getToken from '../auth/GetToken'
 
 function KidMainPage(props) {
     //states
     const [dogPic, setDogPic] = useState(null)
     const [child, setChild] = useState(null)
+    const [token, setToken] = useState(null)
+    const [product, setProduct] = useState(null)
 
     //router props
     const params = useParams()
@@ -38,6 +42,29 @@ function KidMainPage(props) {
         getChild(params.childID)
     }, [params.childID])
 
+    useEffect(() => {
+        const getToken = async (id) => {
+            const data = await KrogerAPI.fetchToken(id)
+            if (data) {
+                setToken(data)
+                console.log(token)
+            }
+        }
+        getToken()
+    }, [])
+
+    useEffect((token) => {
+        const getProducts = async () => {
+            const data = await KrogerAPI.fetchData(token.access_token)
+            if (data) {
+                setProduct(data)
+                console.log(data)
+
+            }
+        }
+        getProducts()
+    }, [])
+
     //render
     const renderDogPic = () => {
         if (!dogPic)
@@ -65,6 +92,7 @@ function KidMainPage(props) {
         )
     }
 
+    
     return (
         <div class="kidmain">
             <img id="kidbanner" src="https://thumbs.dreamstime.com/b/closeup-child-girl-playing-jumping-hopscotch-outdoors-funny-activity-game-kids-playground-summer-backyard-street-sport-196336355.jpg" />
@@ -83,6 +111,9 @@ function KidMainPage(props) {
                 </>
                 <>
                 </>
+            </div>
+            <div>
+                {/* < StoreAccess /> */}
             </div>
         </div>
     )
