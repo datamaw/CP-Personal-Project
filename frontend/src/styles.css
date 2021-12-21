@@ -12,6 +12,7 @@
     text-decoration: darkslategray;
     font-style: oblique;
     font-weight: 500;
+    color:floralwhite;
 }
 
 #kidheader {
@@ -26,10 +27,39 @@
 }
 
 .kidmain {
-    background-color:lightblue;
+    background-color:black;
 }
 
 #kidpagetopbody {
     display: flex;
     justify-content: space-between;
+}
+
+.store-pics {
+    width: 150px;
+    height: 150px;
+    padding: 0px;
+}
+
+#snack-layout {
+    display: flex;
+    justify-content: space-evenly;
+    margin-right: 40x;
+    color: floralwhite;
+}
+
+.pic-description {
+    vertical-align: top;
+    line-height: 20px;
+    display: inline-block;
+    text-align: center;
+    width: 120px;
+}
+
+#entire-store {
+    color: red;
+}
+
+#calculating-header {
+    color: whitesmoke;
 }
