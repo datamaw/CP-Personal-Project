@@ -4,7 +4,8 @@ import { useParams } from 'react-router-dom'  //to use id from url
 import BackendAPI from "../api/BackendAPI"
 import DogAPI from "../api/DogAPI"
 import KrogerAPI from "../api/KrogerAPI"
-import Product from "../api/Product"
+import App from '../components/Calculator/Calculator'
+
 
 function KidMainPage(props) {
     //states
@@ -169,13 +170,18 @@ function KidMainPage(props) {
                 <br/>
                 <br/>
                 </>
-                <>
-                </>
+                <div>
+
+                </div>
                 <>
                 </>
             </div>
             <div>
                 { renderProducts() }
+                <hr/>
+            </div>
+            <div>
+                <App />
             </div>
         </div>
     )
