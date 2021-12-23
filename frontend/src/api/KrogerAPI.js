@@ -1,7 +1,7 @@
 
 const locationID = '02100928';
 const BASE_URL_TOKEN = 'https://api.kroger.com/v1/connect/oauth2/token'
-const BASE_URL_PRODUCT = `https://api.kroger.com/v1/products?filter.term=chips&filter.locationID=${locationID}&filter.limit=5`;
+const BASE_URL_PRODUCT = `https://api.kroger.com/v1/products?filter.term=snack&filter.locationID=${locationID}&filter.limit=50`;
 
 const tryCatchFetch = async (url, init=null ) => {
     try {

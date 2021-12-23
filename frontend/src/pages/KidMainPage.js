@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'  //to use id from url
 import BackendAPI from "../api/BackendAPI"
 import DogAPI from "../api/DogAPI"
 import KrogerAPI from "../api/KrogerAPI"
-import App from '../components/Calculator/Calculator'
+import CalcApp from '../components/Calculator/Calculator'
 
 
 function KidMainPage(props) {
@@ -79,7 +79,7 @@ function KidMainPage(props) {
             <div>
             <h5 className="kidpage">Let's Explore Together!</h5>
             <>
-            <img className="dog-pic" src={ dogPic } />
+            <img className="dog-pic" src={ dogPic } alt="dog-pic"/>
             {/* <Button variant="secondary"  onClick={getDogPic()}>
                     Find a New Friend
             </Button> */}
@@ -101,7 +101,12 @@ function KidMainPage(props) {
 
 
     const renderProducts = () => {
-        const rndInt = Math.floor(Math.random()*10+1)
+        const firstProduct = Math.floor(Math.random()*50+1)
+        const secondProduct = Math.floor(Math.random()*50+1)
+        const thirdProduct = Math.floor(Math.random()*50+1)
+        const fourthProduct = Math.floor(Math.random()*50+1)
+        const fifthProduct = Math.floor(Math.random()*50+1)
+
         if (!product) {
             console.log("no products")
 
@@ -109,6 +114,7 @@ function KidMainPage(props) {
                 <h2>Please Wait for Store Products to Load...</h2>
             )
             // return null
+            
         }
         else return(
             <div id="entire-store">
@@ -117,39 +123,39 @@ function KidMainPage(props) {
             <hr/>
             <div id="snack-layout">
                 <div className="pic-description">
-                    <Button variant="secondary" value={Math.floor(Math.random()*10+1)}>
+                    <Button className="product-button" variant="secondary" value={Math.floor(Math.random()*10+1)}>
                         ${Math.floor(Math.random()*10+1)}
                     </Button>
-                    <img class="store-pics" src={ product.data[0].images[0].sizes[1].url} alt="first-pic" />
-                    <h10> { product.data[0].description } </h10>
+                    <img class="store-pics" src={ product.data[firstProduct].images[0].sizes[2].url} alt="first-pic" />
+                    <h6 className="product-description"> { product.data[firstProduct].description } </h6>
                 </div>
                 <div className="pic-description">
-                    <Button variant="secondary" value={Math.floor(Math.random()*10+1)}>
+                    <Button className="product-button" variant="secondary" value={Math.floor(Math.random()*10+1)}>
                         ${Math.floor(Math.random()*10+1)}
                     </Button>
-                    <img class="store-pics" src={ product.data[1].images[0].sizes[1].url} alt="second-pic" />
-                    <h10> { product.data[1].description } </h10>
+                    <img class="store-pics" src={ product.data[secondProduct].images[0].sizes[2].url} alt="second-pic" />
+                    <h6 className="product-description"> { product.data[secondProduct].description } </h6>
                 </div>
                 <div className="pic-description"> 
-                    <Button variant="secondary" value={Math.floor(Math.random()*10+1)}>
+                    <Button className="product-button" variant="secondary" value={Math.floor(Math.random()*10+1)}>
                         ${Math.floor(Math.random()*10+1)}
                     </Button>
-                    <img class="store-pics" src={ product.data[2].images[0].sizes[1].url} alt="third-pic" />
-                    <h10> { product.data[2].description } </h10>
+                    <img class="store-pics" src={ product.data[thirdProduct].images[0].sizes[2].url} alt="third-pic" />
+                    <h6 className="product-description"> { product.data[thirdProduct].description } </h6>
                 </div>
                 <div className="pic-description">
-                    <Button variant="secondary" value={Math.floor(Math.random()*10+1)}>
+                    <Button className="product-button" variant="secondary" value={Math.floor(Math.random()*10+1)}>
                         ${Math.floor(Math.random()*10+1)}
                     </Button>
-                    <img class="store-pics" src={ product.data[3].images[0].sizes[1].url} alt="fourth-pic" />
-                    <h10> { product.data[3].description } </h10>
+                    <img class="store-pics" src={ product.data[fourthProduct].images[0].sizes[2].url} alt="fourth-pic" />
+                    <h6 className="product-description"> { product.data[fourthProduct].description } </h6>
                 </div>
                 <div className="pic-description">
-                    <Button variant="secondary" value={Math.floor(Math.random()*10+1)}>
+                    <Button className="product-button" variant="secondary" value={Math.floor(Math.random()*10+1)}>
                         ${Math.floor(Math.random()*10+1)}
                     </Button>
-                    <img class="store-pics" src={ product.data[4].images[0].sizes[1].url} alt="fifth-pic" />
-                    <h10> { product.data[4].description } </h10>
+                    <img class="store-pics" src={ product.data[fifthProduct].images[0].sizes[2].url} alt="fifth-pic" />
+                    <h6 className="product-description"> { product.data[fifthProduct].description } </h6>
                 </div>
             </div>
             </div>
@@ -181,7 +187,7 @@ function KidMainPage(props) {
                 <hr/>
             </div>
             <div>
-                <App />
+                <CalcApp />
             </div>
         </div>
     )

@@ -63,3 +63,13 @@
 #calculating-header {
     color: whitesmoke;
 }
+
+.product-button {
+    margin-left: 30px;
+}
+
+.product-description {
+    margin-left: 30px;
+    display: flex;
+    justify-content: space-evenly;
+}
