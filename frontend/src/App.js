@@ -15,6 +15,8 @@ import AddChild from './pages/AddChild';
 import Parents from  './pages/Parents';
 import WishListAllPage from './pages/WishListAllPage';
 import WishItemPage from './pages/WishItemPage';
+import EditChildPage from './pages/EditChild';
+import DeleteItemPage from './pages/DeleteItem';
 // import LoginPage from './pages/LoginPage';
 // import SignupPage from './pages/SignupPage';
 // import { getLoggedInUser, login } from './api/UserAPI';
@@ -22,7 +24,7 @@ import WishItemPage from './pages/WishItemPage';
 
 //router
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import EditChildPage from './pages/EditChild';
+
 
 function App() {
 
@@ -104,6 +106,8 @@ function App() {
           <Route exact path="/cashandcandy/wishlists/:listID/" element={ <WishlistPage />} />
           <Route exact path="/cashandcandy/wishlists/:listID/item/:itemID" element={ <WishItemPage />} />
           <Route exact path="/cashandcandy/wishlists/:listID/item/create" element={ <ModifyWishItemPage />} />
+          <Route path="/cashandcandy/wishlists/:listID/item/:itemID/update" element={<ModifyWishItemPage />} />
+          <Route path="/cashandcandy/wishlists/:listID/item/:itemID/delete" element={<DeleteItemPage />} />
           <Route exact path="/cashandcandy/allowance" element={ <AllowanceListPage/>} />
         </Routes>
       </BrowserRouter>

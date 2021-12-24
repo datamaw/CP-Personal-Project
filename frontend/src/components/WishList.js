@@ -19,8 +19,10 @@ function WishList(props) {
                     {/* <h5>{ item.item_name } Looks Like This:</h5> */}
                     {/* <img src={ item.item_image } /> */}
                     <h5>Date Added: { item.date_added }</h5>
-                    <h5>To View Item Details:</h5>
-                    <Link to={`/wishlists/${item.id}/item/${item.id}`}>{ item.item_name }</Link>
+            
+                    <Link to={`/cashandcandy/wishlists/${item.id}/item/${item.id}`}><button>Edit</button></Link>
+                    {/* <Link to={`/wishlists/${wishList.id}/item/${item.id}/update`} state={{item}}><button>Update Item</button></Link>
+                    <Link to={`/wishlists/${wishList.id}/item/${item.id}/delete`}><button>Delete Item</button></Link> */}
                     <hr/>
                 </div>
                 )}) 

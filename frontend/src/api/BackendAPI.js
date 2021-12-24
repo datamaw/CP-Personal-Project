@@ -6,7 +6,10 @@ const tryCatchFetch = async (url, init=null ) => {
     try {
         const response = await fetch(url, init)   //awaiting the promise, not a value. Init is the parameter that goes into fetch - can be any name. the default is a GET request
         if (response.ok) {
-            return await response.json()
+            if (response.status !== 204)  //do this for deleting, because otherwise will get unexpected end of json error
+                return await response.json()
+            else
+                return response
         }
         else {
             throw new Error(`Bad response: ${response.status} ${response.statusText}`)
@@ -51,7 +54,7 @@ const fetchWishList = async (id) => {
 }
 
 const fetchWishItem = async (itemID) => {
-    const url = BASE_URL + 'wish-list/' + `${itemID}`
+    const url = BASE_URL + 'item/' + `${itemID}`
     return await tryCatchFetch(url)
 }
 
@@ -67,6 +70,30 @@ const addWishItem = async (itemObj) => {
     return await tryCatchFetch(url, paramsObj)
 }
 
+const updateItem = async (taskObj, id) => {
+    const url = BASE_URL + `item/${id}/`
+    const paramsObj = {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(taskObj)
+    }
+    return await tryCatchFetch(url, paramsObj)
+}
+
+const deleteItem = async (id) => {
+    const url = BASE_URL + `item/${id}/`
+    const paramsObj = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+    return await tryCatchFetch(url, paramsObj)
+}
+  
+
 const exportItems = {
     fetchChildList,
     fetchChild,
@@ -74,7 +101,9 @@ const exportItems = {
     fetchWishList,
     fetchWishItem,
     fetchAllWishLists,
-    addWishItem
+    addWishItem,
+    deleteItem,
+    updateItem
 }
 
 export default exportItems
