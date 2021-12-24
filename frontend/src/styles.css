@@ -73,3 +73,29 @@
     display: flex;
     justify-content: space-evenly;
 }
+
+#calculating-area {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#calculator-div {
+    width: 350px;
+    height: 350px;
+}
+
+#comparison-div {
+    width: 350px;
+    height: 350px;
+}
+
+#wishlist-div {
+    width: 350px;
+    height: 350px;
+}
+
+#go-to-wishlists-button {
+    position: absolute;
+    left: 5px;
+    top: 115px;
+}

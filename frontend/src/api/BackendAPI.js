@@ -40,10 +40,41 @@ const addChild = async (childObj) => {
     return await tryCatchFetch(url, init)
 }
 
+const fetchAllWishLists = async () => {
+    const url = BASE_URL + 'wish-list/'
+    return await tryCatchFetch(url)
+}
+
+const fetchWishList = async (id) => {
+    const url = BASE_URL + `wish-list/${id}/`
+    return await tryCatchFetch(url)
+}
+
+const fetchWishItem = async (itemID) => {
+    const url = BASE_URL + 'wish-list/' + `${itemID}`
+    return await tryCatchFetch(url)
+}
+
+const addWishItem = async (itemObj) => {
+    const url = BASE_URL + `item/`
+    const paramsObj = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(itemObj)
+    }
+    return await tryCatchFetch(url, paramsObj)
+}
+
 const exportItems = {
     fetchChildList,
     fetchChild,
-    addChild
+    addChild,
+    fetchWishList,
+    fetchWishItem,
+    fetchAllWishLists,
+    addWishItem
 }
 
 export default exportItems

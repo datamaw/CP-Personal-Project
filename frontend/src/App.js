@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -9,9 +8,13 @@ import Navbar from './components/Navbar';
 // pages
 import HomePage from './pages/HomePage';
 import KidMainPage from './pages/KidMainPage';
-import AddWishItemPage from './pages/AddWishItem';
+import WishlistPage from './pages/WishListPage';
+import AllowanceListPage from './pages/AllowanceListPage';
+import ModifyWishItemPage from './pages/ModifyWishItem';
 import AddChild from './pages/AddChild';
 import Parents from  './pages/Parents';
+import WishListAllPage from './pages/WishListAllPage';
+import WishItemPage from './pages/WishItemPage';
 // import LoginPage from './pages/LoginPage';
 // import SignupPage from './pages/SignupPage';
 // import { getLoggedInUser, login } from './api/UserAPI';
@@ -93,11 +96,15 @@ function App() {
           {/* <Route exact path="/login" render={renderLoginPage} />
           <Route exact path="/signup" component={SignupPage} /> */}
           <Route exact path="/cashandcandy/:childID" element={ <KidMainPage />} />
-          <Route exact path="/cashandcandy/additem" element={ <AddWishItemPage />} />
+          <Route exact path="/cashandcandy/additem" element={ <ModifyWishItemPage />} />
           <Route exact path="/cashandcandy/addchild" element={ <AddChild />} />
           <Route exact path="/cashandcandy/parents" element={ <Parents />} />
           <Route exact path="/cashandcandy/editchild" element={ <EditChildPage />} />
-          {/* <Route exact path="/cashandcandy/callback" element={ <CallBackPage/>} /> */}
+          <Route exact path="/cashandcandy/wishlists/" element={ <WishListAllPage />} />
+          <Route exact path="/cashandcandy/wishlists/:listID/" element={ <WishlistPage />} />
+          <Route exact path="/cashandcandy/wishlists/:listID/item/:itemID" element={ <WishItemPage />} />
+          <Route exact path="/cashandcandy/wishlists/:listID/item/create" element={ <ModifyWishItemPage />} />
+          <Route exact path="/cashandcandy/allowance" element={ <AllowanceListPage/>} />
         </Routes>
       </BrowserRouter>
  

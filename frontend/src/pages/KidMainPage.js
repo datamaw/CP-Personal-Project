@@ -5,6 +5,7 @@ import BackendAPI from "../api/BackendAPI"
 import DogAPI from "../api/DogAPI"
 import KrogerAPI from "../api/KrogerAPI"
 import CalcApp from '../components/Calculator/Calculator'
+import WishList from '../components/WishList'
 
 
 function KidMainPage(props) {
@@ -13,6 +14,7 @@ function KidMainPage(props) {
     const [child, setChild] = useState(null)
     const [token, setToken] = useState(null)
     const [product, setProduct] = useState(null)
+    const [wishList, setWishList] = useState([])
 
     //router props
     const params = useParams()
@@ -69,6 +71,19 @@ function KidMainPage(props) {
         }
         { token && getProducts() }
     }, [token])
+
+  useEffect(() => {
+    const getWishList = async () => {
+      const data = await BackendAPI.fetchWishList()
+      // console.log(data)
+      if (data) {
+        setWishList(data)
+        console.log(wishList)
+      }
+    }
+
+    getWishList()
+  }, [])  // empty array - only run on render
 
     //render
     const renderDogPic = () => {
@@ -186,8 +201,16 @@ function KidMainPage(props) {
                 { renderProducts() }
                 <hr/>
             </div>
-            <div>
-                <CalcApp />
+            <div id="calculating-area">
+                <div id="calculator-div">
+                    <CalcApp />
+                </div>
+                <div id="comparison-div">
+                    <h4>HOW MUCH CAN YOU BUY?</h4>
+                </div>
+                <div id="wishlist-div">
+                    <WishList/>
+                </div>
             </div>
         </div>
     )
