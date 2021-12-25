@@ -38,9 +38,7 @@ function WishListPage(props) {
             </div>
             <div>
                 <hr />
-                { wishList && <Link to={`/cashandcandy/wishlists/${wishList.id}/item/create`}><button>Add Task</button></Link> }
-                {/* { wishList && <Link to={`/wishlists/${wishList.id}/item/${item.id}/update`} state={{item}}><button>Update Item</button></Link> }
-                { wishList && <Link to={`/wishlists/${wishList.id}/item/${item.id}/delete`}><button>Delete Item</button></Link> } */}
+                { wishList && <Link to={`/cashandcandy/wishlists/${wishList.id}/item/create`}><button>Add Item</button></Link> }
                 <hr />
                 { wishList && < WishList wishList={wishList} /> }
             </div>

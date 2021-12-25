@@ -209,7 +209,7 @@ function KidMainPage(props) {
                     <h4>HOW MUCH CAN YOU BUY?</h4>
                 </div>
                 <div id="wishlist-div">
-                    <WishList/>
+                   {/* { wishList && <WishList wishList={wishList} item={item}/> } */}
                 </div>
             </div>
         </div>

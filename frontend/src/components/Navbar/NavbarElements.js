@@ -28,10 +28,10 @@ padding: 0 1rem;
 height: 100%;
 cursor: pointer;
 &.active {
-  color:black;
+  color:white;
 }
 &:hover {
-  color: black;
+  color: red;
 }
 `;
 

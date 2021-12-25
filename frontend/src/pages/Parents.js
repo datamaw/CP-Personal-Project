@@ -28,17 +28,22 @@ function ParentPage(props) {
         <div>
             <h2>Parent Control Board</h2>
             <br />
-            <Link to="/cashandcandy/addchild">
-                <Button variant="outline-secondary" >
+            <Link to="/cashandcandy/parents/addchild">
+                <Button variant="secondary" >
                     Add Child
                 </Button>
+                <br/>
             </Link>
+            <br/>
             {/* <Link to="/cashandcandy/addchild">
                 <Button variant="outline-secondary" >
                     View Children List
                 </Button>
             </Link> */}
             <ChildList childList={childList} />
+            <br/>
+            <br/>
+            <Link to={`/cashandcandy/wishlists/`}><Button variant="secondary">View and Manage Wishlists</Button></Link>
         </div>
     )
 }

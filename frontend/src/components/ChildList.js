@@ -28,6 +28,7 @@ function ChildList(props) {
             <tr>
               {/* <th>#</th> */}
               <th>Child Accounts</th>
+
               {/* <th>Price</th>
               <th>Varietal</th>
               <th>Description</th> */}
@@ -37,6 +38,7 @@ function ChildList(props) {
             { renderChildList() }
           </tbody>
         </Table>
+        
       </div>
     )
   }

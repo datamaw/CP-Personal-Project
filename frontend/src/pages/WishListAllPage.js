@@ -25,6 +25,7 @@ const renderWishLists = () => {
         return (
             <div>
                 <Link to={`/cashandcandy/wishlists/${wishLists.id}`}>{ wishLists.list_name }</Link>
+                <hr/>
             </div>
         )
     })
@@ -32,9 +33,12 @@ const renderWishLists = () => {
 }
 
     return (
-        <div>
-            <h2>Your Children's Wishlists</h2>
-
+        <div id="all-wishlists-page">
+            <div id="wishlist-pic-div">
+            </div>
+            <br/>
+            <h2>Your Family's Wishlists</h2>
+            <hr/>
             <div>
                 <h5>{ renderWishLists() }</h5>
             </div>

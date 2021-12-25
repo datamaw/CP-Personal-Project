@@ -1,6 +1,7 @@
 
 import BackendAPI from "../api/BackendAPI"
 import { useNavigate, useParams } from "react-router-dom"
+import { Link } from 'react-router-dom'
 
 function DeleteItemPage(props) {
   // params
@@ -18,9 +19,14 @@ function DeleteItemPage(props) {
 
   return (
     <div>
-      Are you sure you want to delete this task?
+      Are you sure you want to delete this item?
+      <br/>
+      <br/>
       <button onClick={deleteItem}>Yes</button>
-      <button>No</button>
+      <br/>
+      <br/>
+      <br/>
+      <Link to={`/cashandcandy/wishlists/${params.listID}/`}><button>Cancel</button></Link>
     </div>
   )
 }

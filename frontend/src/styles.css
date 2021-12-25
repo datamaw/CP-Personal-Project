@@ -99,3 +99,13 @@
     left: 5px;
     top: 115px;
 }
+
+#wishlist-pic-div {
+    background: url("https://s.abcnews.com/images/Lifestyle/HT_christmas_wish_list_nt_131204_16x9_992.jpg");
+    height: 100px;
+}
+
+#all-wishlists-page {
+    background:bisque;
+    height: 1000px;
+}

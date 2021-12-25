@@ -43,6 +43,30 @@ const addChild = async (childObj) => {
     return await tryCatchFetch(url, init)
 }
 
+const updateChild = async (childObj, id) => {
+    const url = BASE_URL + `child/${id}/`
+    const init = {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(childObj)
+    }
+    return await tryCatchFetch(url, init)
+}
+
+const deleteChild = async (id) => {
+    const url = BASE_URL + `child/${id}/`
+    const paramsObj = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+    return await tryCatchFetch(url, paramsObj)
+}
+
+
 const fetchAllWishLists = async () => {
     const url = BASE_URL + 'wish-list/'
     return await tryCatchFetch(url)
@@ -103,7 +127,9 @@ const exportItems = {
     fetchAllWishLists,
     addWishItem,
     deleteItem,
-    updateItem
+    updateItem,
+    updateChild,
+    deleteChild
 }
 
 export default exportItems

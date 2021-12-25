@@ -11,12 +11,13 @@ import KidMainPage from './pages/KidMainPage';
 import WishlistPage from './pages/WishListPage';
 import AllowanceListPage from './pages/AllowanceListPage';
 import ModifyWishItemPage from './pages/ModifyWishItem';
-import AddChild from './pages/AddChild';
+import ModifyChild from './pages/ModifyChild';
 import Parents from  './pages/Parents';
 import WishListAllPage from './pages/WishListAllPage';
 import WishItemPage from './pages/WishItemPage';
-import EditChildPage from './pages/EditChild';
+import DeleteChild from './pages/DeleteChild'
 import DeleteItemPage from './pages/DeleteItem';
+import ChildViewPage from './pages/ChildViewPage';
 // import LoginPage from './pages/LoginPage';
 // import SignupPage from './pages/SignupPage';
 // import { getLoggedInUser, login } from './api/UserAPI';
@@ -24,6 +25,7 @@ import DeleteItemPage from './pages/DeleteItem';
 
 //router
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+
 
 
 function App() {
@@ -98,10 +100,12 @@ function App() {
           {/* <Route exact path="/login" render={renderLoginPage} />
           <Route exact path="/signup" component={SignupPage} /> */}
           <Route exact path="/cashandcandy/:childID" element={ <KidMainPage />} />
-          <Route exact path="/cashandcandy/additem" element={ <ModifyWishItemPage />} />
-          <Route exact path="/cashandcandy/addchild" element={ <AddChild />} />
+          {/* <Route exact path="/cashandcandy/additem" element={ <ModifyWishItemPage />} /> */}
+          <Route exact path="/cashandcandy/parents/addchild" element={ <ModifyChild />} />
+          <Route exact path="/cashandcandy/parents/:childID" element={ <ChildViewPage />} /> 
+          <Route exact path="/cashandcandy/parents/:childID/delete" element={ <DeleteChild /> } />
           <Route exact path="/cashandcandy/parents" element={ <Parents />} />
-          <Route exact path="/cashandcandy/editchild" element={ <EditChildPage />} />
+          <Route exact path="/cashandcandy/parents/:childID/update" element={ <ModifyChild />} />
           <Route exact path="/cashandcandy/wishlists/" element={ <WishListAllPage />} />
           <Route exact path="/cashandcandy/wishlists/:listID/" element={ <WishlistPage />} />
           <Route exact path="/cashandcandy/wishlists/:listID/item/:itemID" element={ <WishItemPage />} />
