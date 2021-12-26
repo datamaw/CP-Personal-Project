@@ -5,6 +5,7 @@ import BackendAPI from "../api/BackendAPI"
 import DogAPI from "../api/DogAPI"
 import KrogerAPI from "../api/KrogerAPI"
 import CalcApp from '../components/Calculator/Calculator'
+import YoutubeEmbed from '../components/Youtube'
 import WishList from '../components/WishList'
 
 
@@ -18,6 +19,8 @@ function KidMainPage(props) {
 
     //router props
     const params = useParams()
+
+    const embedID="NfurkrZEn3Q"
 
     //effects
     useEffect(() => {
@@ -134,41 +137,41 @@ function KidMainPage(props) {
         else return(
             <div id="entire-store">
             <hr/>
-            <h3>Snack Store</h3>
+            <h3>Candy Shop</h3>
             <hr/>
             <div id="snack-layout">
                 <div className="pic-description">
-                    <Button className="product-button" variant="secondary" value={Math.floor(Math.random()*10+1)}>
+                    {/* <Button className="product-button" variant="secondary" value={Math.floor(Math.random()*10+1)}>
                         ${Math.floor(Math.random()*10+1)}
-                    </Button>
+                    </Button> */}
                     <img class="store-pics" src={ product.data[firstProduct].images[0].sizes[2].url} alt="first-pic" />
                     <h6 className="product-description"> { product.data[firstProduct].description } </h6>
                 </div>
                 <div className="pic-description">
-                    <Button className="product-button" variant="secondary" value={Math.floor(Math.random()*10+1)}>
+                    {/* <Button className="product-button" variant="secondary" value={Math.floor(Math.random()*10+1)}>
                         ${Math.floor(Math.random()*10+1)}
-                    </Button>
+                    </Button> */}
                     <img class="store-pics" src={ product.data[secondProduct].images[0].sizes[2].url} alt="second-pic" />
                     <h6 className="product-description"> { product.data[secondProduct].description } </h6>
                 </div>
                 <div className="pic-description"> 
-                    <Button className="product-button" variant="secondary" value={Math.floor(Math.random()*10+1)}>
+                    {/* <Button className="product-button" variant="secondary" value={Math.floor(Math.random()*10+1)}>
                         ${Math.floor(Math.random()*10+1)}
-                    </Button>
+                    </Button> */}
                     <img class="store-pics" src={ product.data[thirdProduct].images[0].sizes[2].url} alt="third-pic" />
                     <h6 className="product-description"> { product.data[thirdProduct].description } </h6>
                 </div>
                 <div className="pic-description">
-                    <Button className="product-button" variant="secondary" value={Math.floor(Math.random()*10+1)}>
+                    {/* <Button className="product-button" variant="secondary" value={Math.floor(Math.random()*10+1)}>
                         ${Math.floor(Math.random()*10+1)}
-                    </Button>
+                </Button> */}
                     <img class="store-pics" src={ product.data[fourthProduct].images[0].sizes[2].url} alt="fourth-pic" />
                     <h6 className="product-description"> { product.data[fourthProduct].description } </h6>
                 </div>
                 <div className="pic-description">
-                    <Button className="product-button" variant="secondary" value={Math.floor(Math.random()*10+1)}>
+                    {/* <Button className="product-button" variant="secondary" value={Math.floor(Math.random()*10+1)}>
                         ${Math.floor(Math.random()*10+1)}
-                    </Button>
+                </Button> */}
                     <img class="store-pics" src={ product.data[fifthProduct].images[0].sizes[2].url} alt="fifth-pic" />
                     <h6 className="product-description"> { product.data[fifthProduct].description } </h6>
                 </div>
@@ -177,6 +180,8 @@ function KidMainPage(props) {
         )
     }
     
+
+
     return (
         <div class="kidmain">
             <img id="kidbanner" src="https://thumbs.dreamstime.com/b/closeup-child-girl-playing-jumping-hopscotch-outdoors-funny-activity-game-kids-playground-summer-backyard-street-sport-196336355.jpg" />
@@ -186,16 +191,16 @@ function KidMainPage(props) {
             <hr />
             <br />
             <div id="kidpagetopbody">
-                <>
+                <div id="dog-div">
                 { renderDogPic() }
-                <br/>
-                <br/>
-                </>
-                <div>
-
                 </div>
-                <>
-                </>
+                <div id="chalkboard">
+                    <p>Watch the video ---></p>
+                    <p> then join Fido in choosing candy to buy. The more candy you add, the less money you will have for your wishlist items!</p>
+                </div>
+                <div>
+                <iframe width="735" height="269" src="https://www.youtube.com/embed/NfurkrZEn3Q" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                </div>
             </div>
             <div>
                 { renderProducts() }
@@ -209,7 +214,7 @@ function KidMainPage(props) {
                     <h4>HOW MUCH CAN YOU BUY?</h4>
                 </div>
                 <div id="wishlist-div">
-                   {/* { wishList && <WishList wishList={wishList} item={item}/> } */}
+                   {/* <WishList wishList={wishList}/> */}
                 </div>
             </div>
         </div>

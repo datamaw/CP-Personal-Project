@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { signupUser } from '../api/UserAPI';
 
 const SignupPage = (props) => {
@@ -25,7 +25,7 @@ const SignupPage = (props) => {
       <h1>Signup Page</h1>
       <form onSubmit={handleSignup}>
         <label>UserName:</label>
-        <input type='text' placeholder='RonBurgondy' name='username' />
+        <input type='text' placeholder='' name='username' />
         <label>Password:</label>
         <input type='password' name='password' />
         <button type='submit' >Sign Up</button>
