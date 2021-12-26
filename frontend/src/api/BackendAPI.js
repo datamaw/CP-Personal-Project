@@ -2,6 +2,29 @@ const BASE_URL = "https://cashandcandy-backend.herokuapp.com/cashandcandy/"
 
 // const BASE_URL = "http://127.0.0.1:8000/cashandcandy/"
 
+//login
+// async function login(credentials) {
+//     try {
+//         let init = {
+//             method: "POST",
+//             headers: {
+//                 "Content-Type": "application/JSON"
+//             },
+//             "body": JSON.stringify(credentials)
+//         }
+//         let response = fetch(BASE_URL + "login", init)
+//         if (response.ok) {
+//             let data = await response.json()
+//             return data
+//         }
+//     }
+//     catch (error) {
+//         console.error(error)
+//         return {}
+//     }
+// }
+
+//cashandcandy
 const tryCatchFetch = async (url, init=null ) => {
     try {
         const response = await fetch(url, init)   //awaiting the promise, not a value. Init is the parameter that goes into fetch - can be any name. the default is a GET request
@@ -119,6 +142,7 @@ const deleteItem = async (id) => {
   
 
 const exportItems = {
+    // login,
     fetchChildList,
     fetchChild,
     addChild,

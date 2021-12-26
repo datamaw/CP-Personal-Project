@@ -16,14 +16,15 @@ const Login = ({isLoggedIn, handleLogout, handleLogin}) => {
     <div>
     <h1>Login Page</h1>
       <form onSubmit={handleLogin}>
-        <label>UserName:</label>
-        <input type='text' placeholder='RonBurgondy' name='username' />
-        <label>Password:</label>
+        <label>UserName:   </label>
+        <input type='text' placeholder='' name='username' />
+        <br/>
+        <label>Password:   </label>
         <input type='password' name='password' />
         <button type='submit' >Submit</button>
       </form>
       <div>
-        <Link to='/'>Home</Link>
+        <Link to='/cashandcandy'>Home</Link>
       </div>
       <div>
         <Link to='/signup'>Signup</Link>

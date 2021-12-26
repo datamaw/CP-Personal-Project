@@ -34,11 +34,11 @@ const Navbar = () => {
                 <NavLink to="/cashandcandy/parents" activeStyle>
                     For Parents Only
                 </NavLink>
-                <NavLink to="/signin" activeStyle>
+                <NavLink to="/login" activeStyle>
                     Sign In
                 </NavLink>
                 <NavBtn>
-                    <NavBtnLink to="/sign-up">Sign Up</NavBtnLink>                
+                    <NavBtnLink to="/signup">Sign Up</NavBtnLink>                
                 </NavBtn>
             </NavMenu> 
            </Nav> 
