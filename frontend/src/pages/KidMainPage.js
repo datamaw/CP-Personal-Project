@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react'
 import { Button } from 'react-bootstrap'
-import { useParams } from 'react-router-dom'  //to use id from url
+import { useParams, Link } from 'react-router-dom'  //to use id from url
 import BackendAPI from "../api/BackendAPI"
 import DogAPI from "../api/DogAPI"
 import KrogerAPI from "../api/KrogerAPI"
 import CalcApp from '../components/Calculator/Calculator'
-import YoutubeEmbed from '../components/Youtube'
-import WishList from '../components/WishList'
+
 
 
 function KidMainPage(props) {
@@ -15,12 +14,10 @@ function KidMainPage(props) {
     const [child, setChild] = useState(null)
     const [token, setToken] = useState(null)
     const [product, setProduct] = useState(null)
-    const [wishList, setWishList] = useState([])
+    const [wishLists, setWishLists] = useState([])
 
     //router props
     const params = useParams()
-
-    const embedID="NfurkrZEn3Q"
 
     //effects
     useEffect(() => {
@@ -41,7 +38,7 @@ function KidMainPage(props) {
             const data = await BackendAPI.fetchChild(id)
             if (data) {
                 setChild(data)
-                // console.log(data)
+                console.log(data)
 
             }
         }
@@ -77,16 +74,16 @@ function KidMainPage(props) {
 
   useEffect(() => {
     const getWishList = async () => {
-      const data = await BackendAPI.fetchWishList()
+      const data = await BackendAPI.fetchAllWishLists(child)
       // console.log(data)
       if (data) {
-        setWishList(data)
-        console.log(wishList)
+        setWishLists(data)
+        console.log(wishLists)
       }
     }
 
     getWishList()
-  }, [])  // empty array - only run on render
+  }, [child])  // empty array - only run on render
 
     //render
     const renderDogPic = () => {
@@ -180,6 +177,33 @@ function KidMainPage(props) {
         )
     }
     
+    // const child_name = child.first_name
+
+    //render
+    const renderWishLists = () => {
+        // if (child.first_name === wishLists.child) {
+        let elems = wishLists.map((wishLists, index) => {
+
+                return (
+                    <div div key={index}>
+                        {/* <Link to={`/cashandcandy/wishlists/${wishLists.id}`}>{ wishLists.list_name }</Link> */}
+                        <h2>{ wishLists.child } Wants:</h2>
+                        <br/>
+                        <h3>{ wishLists.items[0].item_name }</h3>
+                        <br/>
+                        <h4>${ wishLists.items[0].item_price }</h4>
+                        {/* <h4>{ item.item_name }</h4> */}
+                        <hr/>
+                        <h3>{ wishLists.items[1].item_name }</h3>
+                        <br/>
+                        <h4>${ wishLists.items[1].item_price }</h4>
+
+                    </div>
+                )
+            })
+            return elems;
+        // }
+    }
 
 
     return (
@@ -214,7 +238,7 @@ function KidMainPage(props) {
                     <h4>HOW MUCH CAN YOU BUY?</h4>
                 </div>
                 <div id="wishlist-div">
-                   {/* <WishList wishList={wishList}/> */}
+                    {renderWishLists()}
                 </div>
             </div>
         </div>
