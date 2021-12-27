@@ -37,7 +37,7 @@ const renderWishLists = () => {
             <div id="wishlist-pic-div">
             </div>
             <br/>
-            <h2>Your Family's Wishlists</h2>
+            <h1>Your Family's Wishlists</h1>
             <hr/>
             <div>
                 <h5>{ renderWishLists() }</h5>

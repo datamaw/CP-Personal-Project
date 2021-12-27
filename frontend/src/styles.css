@@ -6,6 +6,7 @@
     width: 40%;
     align-items: left;
     padding-bottom: 15px;
+    box-shadow: 1px 1px 5px 1px grey;
 }
 
 .kidpage {
@@ -37,15 +38,24 @@
 
 .store-pics {
     width: 150px;
+    margin-left: -55px;
     height: 150px;
-    padding: 0px;
+    margin-top: 5px;
+    padding: 10px;
+    box-shadow: 5px 5px 5px 5px black;
+    position:absolute;
+    top: 1150px;
 }
 
 #snack-layout {
+    height: 365px;
     display: flex;
     justify-content: space-evenly;
     margin-right: 40x;
     color: floralwhite;
+    background-image: url("https://wallpaperaccess.com/full/1489187.jpg") ;
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 .pic-description {
@@ -65,18 +75,31 @@
 }
 
 .product-button {
-    margin-left: 30px;
+    /* margin-left: 30px; */
+    position:absolute;
+    top: 1325px;
+    color:rgb(29, 207, 53);
+}
+
+#operations-buttons {
+    margin-left: 235px;
+    width: 100px;
+    display:flex;
+    justify-content: space-between;
 }
 
 .product-description {
+    margin-top: 15px;
     margin-left: 30px;
     display: flex;
     justify-content: space-evenly;
 }
 
 #calculating-area {
+    height: 450px;
     display: flex;
     justify-content: space-evenly;
+    color:lightseagreen;
 }
 
 #calculator-div {
@@ -106,7 +129,8 @@
 }
 
 #all-wishlists-page {
-    background:bisque;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background:seashell;
     height: 1000px;
 }
 
@@ -165,4 +189,12 @@
     height: 100%;
     width: 100%;
     position: absolute;
+  }
+
+  #shop-subtitle {
+      color:blanchedalmond
+  }
+
+  #parent-page {
+    background-color:lightsteelblue;
   }

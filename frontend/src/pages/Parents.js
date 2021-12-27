@@ -25,14 +25,21 @@ function ParentPage(props) {
     }, [])  // empty array - only run on render
 
     return (
-        <div>
-            <h2>Parent Control Board</h2>
+        <div id="parent-page">
+            <h1>Parent Control Hub</h1>
             <br />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ9CbkOO2yz8P3BfP79EwXlrer3dtwSS3g9w&usqp=CAU" />
+            <br/>
+            <br/>
+            <Link to={`/cashandcandy/wishlists/`}><Button variant="secondary">View and Manage Wishlists</Button></Link>
+            <br/>
+            <br/>
+            <br/>
             <Link to="/cashandcandy/parents/addchild">
                 <Button variant="secondary" >
                     Add Child
                 </Button>
-                <br/>
+                <br/>{/* ˚ */}
             </Link>
             <br/>
             {/* <Link to="/cashandcandy/addchild">
@@ -43,7 +50,7 @@ function ParentPage(props) {
             <ChildList childList={childList} />
             <br/>
             <br/>
-            <Link to={`/cashandcandy/wishlists/`}><Button variant="secondary">View and Manage Wishlists</Button></Link>
+ 
         </div>
     )
 }

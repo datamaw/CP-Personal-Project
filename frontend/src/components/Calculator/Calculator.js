@@ -6,11 +6,11 @@ import Button from "./Button";
 import React, { useState } from 'react'
 
 const btnValues = [
-  ["C", "+-", "%", "/"],
-  [7, 8, 9, "X"],
+  ["C", "", "", ""],
+  [7, 8, 9, ""],
   [4, 5, 6, "-"],
   [1, 2, 3, "+"],
-  [0, ".", "="],
+  [0, "", "="],
 ];
 
 const toLocaleString = (num) =>
@@ -129,7 +129,7 @@ const CalcApp = () => {
   return (
     <Wrapper>
       <Screen value={calc.num ? calc.num : calc.res} />
-      <ButtonBox>
+     <ButtonBox>
         {
           btnValues.flat().map((btn, i) => {
             return (

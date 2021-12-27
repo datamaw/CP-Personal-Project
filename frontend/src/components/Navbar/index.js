@@ -25,12 +25,12 @@ const Navbar = () => {
                 <NavLink to="/cashandcandy" activeStyle>
                     Home
                 </NavLink>
-                <NavLink to="/about" activeStyle>
+                {/* <NavLink to="/about" activeStyle>
                     About
                 </NavLink>
                 <NavLink to="/contact" activeStyle>
                     Contact
-                </NavLink>
+                </NavLink> */}
                 <NavLink to="/cashandcandy/parents" activeStyle>
                     For Parents Only
                 </NavLink>
