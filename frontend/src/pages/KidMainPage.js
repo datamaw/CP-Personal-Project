@@ -5,7 +5,10 @@ import BackendAPI from "../api/BackendAPI"
 import DogAPI from "../api/DogAPI"
 import KrogerAPI from "../api/KrogerAPI"
 import CalcApp from '../components/Calculator/Calculator'
-import MyScreen from '../components/MyCalc/MyScreen'
+import SpendApp from '../components/Spend'
+import SaveApp from '../components/Save'
+import { FaCreativeCommonsSamplingPlus } from 'react-icons/fa'
+// import MyScreen from '../components/MyCalc/MyScreen'
 // import ButtonBox from "./ButtonBox";
 // import Button from "./Button";
 
@@ -23,11 +26,11 @@ function KidMainPage(props) {
     const [token, setToken] = useState(null)
     const [product, setProduct] = useState(null)
     const [wishLists, setWishLists] = useState([])
-    const [calc, setCalc] = useState({
-        sign: "",
-        num: 0,
-        res: 0,
-        });
+    // const [calc, setCalc] = useState({
+    //     sign: "",
+    //     num: 0,
+    //     res: 0,
+    //     });
 
     //router props
     const params = useParams()
@@ -99,73 +102,73 @@ function KidMainPage(props) {
   }, [child])  // empty array - only run on render
 
     //calculator
-    const numClickHandler = (e) => {
-        e.preventDefault();
-        const value = e.target.innerHTML;
+    // const numClickHandler = (e) => {
+    //     e.preventDefault();
+    //     const value = e.target.innerHTML;
     
-        if (removeSpaces(calc.num).length < 16) {
-            setCalc({
-            ...calc,
-            num:
-                calc.num === 0 && value === "0"
-                ? "0"
-                : calc.num % 1 === 0
-                ? Number(calc.num + value)
-                : calc.num + value,
-            res: !calc.sign ? 0 : calc.res,
-            });
-        }
-    };
+    //     if (removeSpaces(calc.num).length < 16) {
+    //         setCalc({
+    //         ...calc,
+    //         num:
+    //             calc.num === 0 && value === "0"
+    //             ? "0"
+    //             : calc.num % 1 === 0
+    //             ? Number(calc.num + value)
+    //             : calc.num + value,
+    //         res: !calc.sign ? 0 : calc.res,
+    //         });
+    //     }
+    // };
 
-    const signClickHandler = (e) => {
-        e.preventDefault();
-        const value = e.target.innerHTML;
+    // const signClickHandler = (e) => {
+    //     e.preventDefault();
+    //     const value = e.target.innerHTML;
       
-        setCalc({
-          ...calc,
-          sign: value,
-          res: !calc.res && calc.num ? calc.num : calc.res,
-          num: 0,
-        });
-      };
+    //     setCalc({
+    //       ...calc,
+    //       sign: value,
+    //       res: !calc.res && calc.num ? calc.num : calc.res,
+    //       num: 0,
+    //     });
+    //   };
 
-    const equalsClickHandler = () => {
-    if (calc.sign && calc.num) {
-        const math = (a, b, sign) =>
-        sign === "+"
-            ? a + b
-            : sign === "-"
-            ? a - b
-            : sign === "X"
-            ? a * b
-            : a / b;
+    // const equalsClickHandler = () => {
+    // if (calc.sign && calc.num) {
+    //     const math = (a, b, sign) =>
+    //     sign === "+"
+    //         ? a + b
+    //         : sign === "-"
+    //         ? a - b
+    //         : sign === "X"
+    //         ? a * b
+    //         : a / b;
 
-        setCalc({
-        ...calc,
-        res:
-            calc.num === "0" && calc.sign === "/"
-            ? "Can't divide with 0"
-            : toLocaleString(
-                math(
-                    Number(removeSpaces(calc.res)),
-                    Number(removeSpaces(calc.num)),
-                    calc.sign
-                )
-                ),
-        sign: "",
-        num: 0,
-        });
-        }
-    };
+    //     setCalc({
+    //     ...calc,
+    //     res:
+    //         calc.num === "0" && calc.sign === "/"
+    //         ? "Can't divide with 0"
+    //         : toLocaleString(
+    //             math(
+    //                 Number(removeSpaces(calc.res)),
+    //                 Number(removeSpaces(calc.num)),
+    //                 calc.sign
+    //             )
+    //             ),
+    //     sign: "",
+    //     num: 0,
+    //     });
+    //     }
+    // };
 
-    const resetClickHandler = () => {
-        setCalc({
-            ...calc,
-            sign: "",
-            num: 0,
-            res: 0,
-        });
-    };
+    // const resetClickHandler = () => {
+    //     setCalc({
+    //         ...calc,
+    //         sign: "",
+    //         num: 0,
+    //         res: 0,
+    //     });
+    // };
 
     //render
     const renderDogPic = () => {
@@ -222,44 +225,34 @@ function KidMainPage(props) {
             <h3>Candy Shop</h3>
             <br/>
 
-            <h6 id="shop-subtitle">Click on the Buttons to Shop, and See Your Total Below</h6>
+            <h6 id="shop-subtitle">Add Up Your Total Candy Purchase Using the Calculator Below</h6>
             <hr/>
             <div id="snack-layout">
                 <div className="pic-description">
                     <h6 className="product-description"> { product.data[firstProduct].description } </h6>
                     <img class="store-pics" src={ product.data[firstProduct].images[0].sizes[2].url} alt="first-pic" />
                     <br/>
-                    <Button className="product-button" variant="secondary" value="1" onClick={numClickHandler}>
-                        $1
-                    </Button>              
+                    <h3 className="product-button">$1</h3>              
                 </div>
                 <div className="pic-description">
                     <h6 className="product-description"> { product.data[secondProduct].description } </h6>
                     <img class="store-pics" src={ product.data[secondProduct].images[0].sizes[2].url} alt="second-pic" />
-                    <Button className="product-button" variant="secondary" value="2" onClick={numClickHandler}>
-                        $2
-                    </Button>
+                    <h3 className="product-button">$2</h3> 
                 </div>
                 <div className="pic-description"> 
                     <h6 className="product-description"> { product.data[thirdProduct].description } </h6>
                     <img class="store-pics" src={ product.data[thirdProduct].images[0].sizes[2].url} alt="third-pic" />
-                    <Button className="product-button" variant="secondary" value="2" onClick={numClickHandler}>
-                        $3
-                    </Button>
+                    <h3 className="product-button">$3</h3> 
                 </div>
                 <div className="pic-description">
                     <h6 className="product-description"> { product.data[fourthProduct].description } </h6>
                     <img class="store-pics" src={ product.data[fourthProduct].images[0].sizes[2].url} alt="fourth-pic" />
-                    <Button className="product-button" variant="secondary" value="2" onClick={numClickHandler}>
-                        $4
-                    </Button>
+                    <h3 className="product-button">$4</h3> 
                 </div>
                 <div className="pic-description">
                     <h6 className="product-description"> { product.data[fifthProduct].description } </h6>
                     <img class="store-pics" src={ product.data[fifthProduct].images[0].sizes[2].url} alt="fifth-pic" />
-                    <Button className="product-button" variant="secondary" value="2" onClick={numClickHandler}>
-                        $5
-                    </Button>
+                    <h3 className="product-button">$5</h3> 
                 </div>          
             </div>
                 {/* <br/> */}
@@ -277,23 +270,25 @@ function KidMainPage(props) {
 
     //render
     const renderWishLists = (props) => {
-        // if (child.first_name === wishLists.child) {
         let filtered = wishLists.filter(function (wishList) {
             return wishList.child === child.first_name;
         })
+
+        console.log(filtered)
+
         let elems = filtered.map((wishLists, index) => {
 
                 return (
                     <div div key={index}>
                         {/* <Link to={`/cashandcandy/wishlists/${wishLists.id}`}>{ wishLists.list_name }</Link> */}
-                        <h2>{ wishLists.child } Wants:</h2>
-                        <br/>
-                        <h3>{ wishLists.items[0].item_name }</h3>
+                        <h3 id="child-wants-title">for { wishLists.child }</h3>
+                        <hr/>
+                        <h3 className="wish-item-color">{ wishLists.items[0].item_name }</h3>
                         <br/>
                         <h4>${ wishLists.items[0].item_price }</h4>
                         {/* <h4>{ item.item_name }</h4> */}
                         <hr/>
-                        <h3>{ wishLists.items[1].item_name }</h3>
+                        <h3 className="wish-item-color">{ wishLists.items[1].item_name }</h3>
                         <br/>
                         <h4>${ wishLists.items[1].item_price }</h4>
 
@@ -301,7 +296,6 @@ function KidMainPage(props) {
                 )
             })
             return elems;
-        // }
     }
 
 
@@ -330,20 +324,20 @@ function KidMainPage(props) {
                 { renderProducts() }
                 <hr/>
             </div>
-            <div>
-                {/* <Button onClick={token && renderProducts() }>Display Candy!</Button> */}
-            </div>
             <div id="calculating-area">
                 <div id="calculator-div">
                     <h2>$$ Candy Shop Total $$</h2>
                     <CalcApp />
-                    {/* <MyScreen value={calc.num ? calc.num : calc.res} />
-                    <Button value="C" onClick={resetClickHandler}>Clear</Button> */}
                 </div>
                 <div id="comparison-div">
                     <h4>SAVE OR SPEND?</h4>
+                    <SpendApp />
+                    <SaveApp />
+                    <br/>
+                    <h3 id="candy-words">Look! Saving Candy $ Means More $ for Your Wishlist Items!</h3>
                 </div>
                 <div id="wishlist-div">
+                    <h2>Wishlist Items</h2>
                     {renderWishLists()}
                 </div>
             </div>

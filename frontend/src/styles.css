@@ -77,6 +77,7 @@
 .product-button {
     /* margin-left: 30px; */
     position:absolute;
+    margin-left: 58px;
     top: 1325px;
     color:rgb(29, 207, 53);
 }
@@ -96,7 +97,7 @@
 }
 
 #calculating-area {
-    height: 450px;
+    height: 550px;
     display: flex;
     justify-content: space-evenly;
     color:lightseagreen;
@@ -197,4 +198,20 @@
 
   #parent-page {
     background-color:lightsteelblue;
+  }
+
+  .spend-words {
+      color: mediumvioletred
+  }
+
+  .save-words {
+      color: green
+  }
+
+  #candy-words {
+      color:red;
+  }
+
+  .wish-item-color {
+      color: white
   }
