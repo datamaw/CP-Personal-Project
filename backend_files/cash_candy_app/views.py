@@ -5,6 +5,8 @@ from rest_framework import serializers
 from cash_candy_app.serializers import ChildSerializer, WishListSerializer, ItemSerializer, AllowanceListSerializer, AllowanceDetailSerializer
 from cash_candy_app.models import Child, WishList, Item, AllowanceList, AllowanceDetail
 from rest_framework.viewsets import ModelViewSet
+
+# for JWT Authentication
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from rest_framework import permissions, status

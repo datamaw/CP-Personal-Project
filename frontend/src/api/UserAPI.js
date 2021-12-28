@@ -1,4 +1,3 @@
-const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6Im1hdyIsImV4cCI6MTY0MDcyMDMwOCwiZW1haWwiOiIiLCJvcmlnX2lhdCI6MTY0MDU0NzUwOH0.pmnsYigCJNkW4NhJcTudBZCCta0jokPqxrD3_dmMI0Y"
 
 const login = (userObject) => {
     return fetch('https://cashandcandy-backend.herokuapp.com/token-auth/', {
