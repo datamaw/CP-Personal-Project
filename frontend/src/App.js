@@ -34,6 +34,7 @@ import { BrowserRouter, Routes, Route, useNavigate, Navigate } from "react-route
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [user, setUser] = useState(null)
+  const [userID, setUserID] = useState(null)
 
   //router prop
   
@@ -46,6 +47,8 @@ function App() {
         if (data.username) {
           setIsLoggedIn(true)
           setUser(data.username)
+          setUserID(data.id)
+          console.log(data.id)
         }
       }
     }
@@ -54,6 +57,7 @@ function App() {
     }
   }, [user])
 
+  console.log("user ID:", userID)
 
   // async function handleLogin(e) {
   const handleLogin = async (e) => {
@@ -93,7 +97,7 @@ function App() {
           <Route exact path="/cashandcandy/parents/:childID" element={ <ChildViewPage />} /> 
           <Route exact path="/cashandcandy/parents/:childID/delete" element={ <DeleteChild /> } />
           <Route exact path="/cashandcandy/parents" element={ <Parents />} />
-          <Route exact path="/cashandcandy/parents/:childID/update" element={ <ModifyChild user={user}/>} />
+          <Route exact path="/cashandcandy/parents/:childID/update" element={ <ModifyChild userID={userID}/>} />
           <Route exact path="/cashandcandy/wishlists/" element={ <WishListAllPage />} />
           <Route exact path="/cashandcandy/wishlists/:listID/" element={ <WishlistPage />} />
           <Route exact path="/cashandcandy/wishlists/:listID/item/:itemID" element={ <WishItemPage />} />

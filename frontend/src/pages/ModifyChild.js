@@ -29,7 +29,7 @@ function ModifyChildPage(props) {
     const childObject = {
       first_name: event.target.elements[0].value,
       age: event.target.elements[1].value,
-      user: 1
+      user: props.userID
     }
     console.log(childObject)
 

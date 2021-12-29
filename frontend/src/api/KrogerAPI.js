@@ -1,4 +1,5 @@
 
+
 const locationID = '02100928';
 const BASE_URL_TOKEN = 'https://api.kroger.com/v1/connect/oauth2/token'
 const BASE_URL_PRODUCT = `https://api.kroger.com/v1/products?filter.term=candy&filter.locationID=${locationID}&filter.limit=50`;
@@ -23,7 +24,7 @@ const fetchToken = async () => {
 
     const url = BASE_URL_TOKEN
     const myHeaders = new Headers()
-    myHeaders.append("Authorization", "Basic Y2FzaGZvcmNhbmR5a2lkcy0yZTg0ZDFkM2NiODZlMzUzYmE1NDE1Y2M2NDQ3ZTdlYjgwMTkxMTUzNzQzMjY0NTg4MjQ6WUd4ZXp0LV9hd3k2UUlETmxpS0F4SWttZ1g1N3Y0TEZtLUV5NFlWNw==")
+    myHeaders.append("Authorization", `Basic ${process.env.REACT_APP_PRODUCT_API}`)
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded")
     const data = 'grant_type=client_credentials&scope=product.compact'
 
@@ -33,6 +34,7 @@ const fetchToken = async () => {
             body: data,
             redirect: 'follow'
         }
+        console.log("sending to server",init)
         return await tryCatchFetch(url, init)
 
 }

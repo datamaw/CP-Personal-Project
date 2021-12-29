@@ -55,7 +55,7 @@ function KidMainPage(props) {
             const data = await BackendAPI.fetchChild(id)
             if (data) {
                 setChild(data)
-                console.log(data)
+                console.log("child data:",data)
 
             }
         }
@@ -82,8 +82,8 @@ function KidMainPage(props) {
             const data = await KrogerAPI.fetchData(token.access_token)
             if (data) {
                 setProduct(data)
-                console.log(data)
-                console.log(product)
+                console.log("product array:",data)
+                // console.log("product:",product)
             }
         }
         { token && getProducts() }
@@ -95,7 +95,8 @@ function KidMainPage(props) {
       // console.log(data)
       if (data) {
         setWishLists(data)
-        console.log(wishLists)
+        console.log("all wish lists:",data)
+        // console.log("wishlist data:",wishLists)
       }
     }
 
@@ -141,17 +142,22 @@ function KidMainPage(props) {
         const fourthProduct = Math.floor(Math.random()*50+1)
         const fifthProduct = Math.floor(Math.random()*50+1)
 
-        if (!product) {
-            console.log("no products")
+        try{
+            if (!product || !product.data || !product.data[firstProduct].description || !product.data[secondProduct].description || !product.data[thirdProduct].description || !product.data[fourthProduct].description || !product.data[fifthProduct].description) {
+                console.log("no products")
 
-            return (
-                <div>
-                    <h2>Please Wait for Store Products to Load...</h2>
-                </div>
-            )
-            
-        }
-        else return(
+                return (
+                    <div>
+                        <h2>Please Wait for Store Products to Load...</h2>
+                    </div>
+                )
+                
+           }
+         }  catch (error) {
+            console.log(error)
+            renderProducts()
+         } 
+       return(
             <div id="entire-store">
             <hr/>
             <h3>Candy Shop</h3>
@@ -162,28 +168,28 @@ function KidMainPage(props) {
             <div id="snack-layout">
                 <div className="pic-description">
                     <h6 className="product-description"> { product.data[firstProduct].description } </h6>
-                    <img class="store-pics" src={ product.data[firstProduct].images[0].sizes[2].url} alt="first-pic" />
+                    <img class="store-pics" src={ product.data[firstProduct].images[0].sizes[4].url} alt="first-pic" />
                     <br/>
                     <h3 className="product-button">${Math.floor(Math.random()*5+1)}</h3>              
                 </div>
                 <div className="pic-description">
                     <h6 className="product-description"> { product.data[secondProduct].description } </h6>
-                    <img class="store-pics" src={ product.data[secondProduct].images[0].sizes[2].url} alt="second-pic" />
+                    <img class="store-pics" src={ product.data[secondProduct].images[0].sizes[4].url} alt="second-pic" />
                     <h3 className="product-button">${Math.floor(Math.random()*5+1)}</h3> 
                 </div>
                 <div className="pic-description"> 
                     <h6 className="product-description"> { product.data[thirdProduct].description } </h6>
-                    <img class="store-pics" src={ product.data[thirdProduct].images[0].sizes[2].url} alt="third-pic" />
+                    <img class="store-pics" src={ product.data[thirdProduct].images[0].sizes[4].url} alt="third-pic" />
                     <h3 className="product-button">${Math.floor(Math.random()*5+1)}</h3> 
                 </div>
                 <div className="pic-description">
                     <h6 className="product-description"> { product.data[fourthProduct].description } </h6>
-                    <img class="store-pics" src={ product.data[fourthProduct].images[0].sizes[2].url} alt="fourth-pic" />
+                    <img class="store-pics" src={ product.data[fourthProduct].images[0].sizes[4].url} alt="fourth-pic" />
                     <h3 className="product-button">${Math.floor(Math.random()*5+1)}</h3> 
                 </div>
                 <div className="pic-description">
                     <h6 className="product-description"> { product.data[fifthProduct].description } </h6>
-                    <img class="store-pics" src={ product.data[fifthProduct].images[0].sizes[2].url} alt="fifth-pic" />
+                    <img class="store-pics" src={ product.data[fifthProduct].images[0].sizes[4].url} alt="fifth-pic" />
                     <h3 className="product-button">${Math.floor(Math.random()*5+1)}</h3> 
                 </div>          
             </div>
@@ -196,32 +202,37 @@ function KidMainPage(props) {
 
     //render
     const renderWishLists = (props) => {
-        let filtered = wishLists.filter(function (wishList) {
-            return wishList.child === child.first_name;
-        })
-
-        console.log(filtered)
-
-        let elems = filtered.map((wishLists, index) => {
-
-                return (
-                    <div div key={index}>
-                        {/* <Link to={`/cashandcandy/wishlists/${wishLists.id}`}>{ wishLists.list_name }</Link> */}
-                        <h3 id="child-wants-title">for { wishLists.child }</h3>
-                        <hr/>
-                        <h3 className="wish-item-color">{ wishLists.items[0].item_name }</h3>
-                        <br/>
-                        <h4>${ wishLists.items[0].item_price }</h4>
-                        {/* <h4>{ item.item_name }</h4> */}
-                        <hr/>
-                        <h3 className="wish-item-color">{ wishLists.items[1].item_name }</h3>
-                        <br/>
-                        <h4>${ wishLists.items[1].item_price }</h4>
-
-                    </div>
-                )
+        try {
+            let filtered = wishLists.filter(function (wishList) {
+                return wishList.child === child.first_name;
             })
-            return elems;
+
+            console.log("filtered wishlists:",filtered)
+
+            let elems = filtered.map((wishLists, index) => {
+
+                    return (
+                        <div div key={index}>
+                            {/* <Link to={`/cashandcandy/wishlists/${wishLists.id}`}>{ wishLists.list_name }</Link> */}
+                            <h3 id="child-wants-title">for { wishLists.child }</h3>
+                            <hr/>
+                            <h3 className="wish-item-color">{ wishLists.items[0].item_name }</h3>
+                            <br/>
+                            <h4>${ wishLists.items[0].item_price }</h4>
+                            {/* <h4>{ item.item_name }</h4> */}
+                            <hr/>
+                            <h3 className="wish-item-color">{ wishLists.items[1].item_name }</h3>
+                            <br/>
+                            <h4>${ wishLists.items[1].item_price }</h4>
+
+                        </div>
+                    )
+                })
+                return elems;
+        } catch (error) {
+            console.log(error)
+        }
+
     }
 
 
@@ -240,7 +251,7 @@ function KidMainPage(props) {
                 </div>
                 <div id="chalkboard">
                     <p>Watch the video with <input type="text" placeholder="Name Your Dog!"/></p>
-                    <p> then explore the candy shop. Let's learn about spending and saving!</p>
+                    <p> then explore the candy shop! Will you spend or save?</p>
                 </div>
                 <div>
                 <iframe width="735" height="269" src="https://www.youtube.com/embed/NfurkrZEn3Q" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
