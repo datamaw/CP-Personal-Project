@@ -31,9 +31,13 @@ function ParentPage(props) {
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ9CbkOO2yz8P3BfP79EwXlrer3dtwSS3g9w&usqp=CAU" />
             <br/>
             <br/>
+            <div id="child-update-buttons">
             <Link to={`/cashandcandy/wishlists/`}><Button variant="secondary">View and Manage Wishlists</Button></Link>
             <br/>
             <br/>
+            <div className="need-some-space">
+                
+            </div>
             <br/>
             <Link to="/cashandcandy/parents/addchild">
                 <Button variant="secondary" >
@@ -41,6 +45,7 @@ function ParentPage(props) {
                 </Button>
                 <br/>{/* ˚ */}
             </Link>
+            </div>
             <br/>
             {/* <Link to="/cashandcandy/addchild">
                 <Button variant="outline-secondary" >

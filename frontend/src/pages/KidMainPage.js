@@ -164,36 +164,30 @@ function KidMainPage(props) {
                     <h6 className="product-description"> { product.data[firstProduct].description } </h6>
                     <img class="store-pics" src={ product.data[firstProduct].images[0].sizes[2].url} alt="first-pic" />
                     <br/>
-                    <h3 className="product-button">$1</h3>              
+                    <h3 className="product-button">${Math.floor(Math.random()*5+1)}</h3>              
                 </div>
                 <div className="pic-description">
                     <h6 className="product-description"> { product.data[secondProduct].description } </h6>
                     <img class="store-pics" src={ product.data[secondProduct].images[0].sizes[2].url} alt="second-pic" />
-                    <h3 className="product-button">$2</h3> 
+                    <h3 className="product-button">${Math.floor(Math.random()*5+1)}</h3> 
                 </div>
                 <div className="pic-description"> 
                     <h6 className="product-description"> { product.data[thirdProduct].description } </h6>
                     <img class="store-pics" src={ product.data[thirdProduct].images[0].sizes[2].url} alt="third-pic" />
-                    <h3 className="product-button">$3</h3> 
+                    <h3 className="product-button">${Math.floor(Math.random()*5+1)}</h3> 
                 </div>
                 <div className="pic-description">
                     <h6 className="product-description"> { product.data[fourthProduct].description } </h6>
                     <img class="store-pics" src={ product.data[fourthProduct].images[0].sizes[2].url} alt="fourth-pic" />
-                    <h3 className="product-button">$4</h3> 
+                    <h3 className="product-button">${Math.floor(Math.random()*5+1)}</h3> 
                 </div>
                 <div className="pic-description">
                     <h6 className="product-description"> { product.data[fifthProduct].description } </h6>
                     <img class="store-pics" src={ product.data[fifthProduct].images[0].sizes[2].url} alt="fifth-pic" />
-                    <h3 className="product-button">$5</h3> 
+                    <h3 className="product-button">${Math.floor(Math.random()*5+1)}</h3> 
                 </div>          
             </div>
-                {/* <br/> */}
-                {/* <div id="operations-buttons">
-                    <br/>
-                    <br/>
-                    <Button className="operations-button" variant="secondary" value="+" onClick={signClickHandler}>+</Button>
-                    <Button className="operations-button" variant="secondary" value="=" onClick={equalsClickHandler}>=</Button> 
-                </div> */}
+                
             </div>
         )
     }
@@ -245,8 +239,8 @@ function KidMainPage(props) {
                 { renderDogPic() }
                 </div>
                 <div id="chalkboard">
-                    <p>Watch the video -></p>
-                    <p> then join Fido in choosing candy to buy. The more candy you add, the less money you will have for your wishlist items!</p>
+                    <p>Watch the video with <input type="text" placeholder="Name Your Dog!"/></p>
+                    <p> then explore the candy shop. Let's learn about spending and saving!</p>
                 </div>
                 <div>
                 <iframe width="735" height="269" src="https://www.youtube.com/embed/NfurkrZEn3Q" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
@@ -265,7 +259,7 @@ function KidMainPage(props) {
                     <CalcApp />
                     <br/>
                     <br/>
-                    <h2>You Have This Much $</h2>
+                    <h2 id="earned-title">You Earned This Much $</h2>
                     <MoneyAmountApp/>
                 </div>
                 <div id="comparison-div">
@@ -273,7 +267,7 @@ function KidMainPage(props) {
                     <SpendApp />
                     <SaveApp />
                     <br/>
-                    <h3 id="candy-words">Look! Saving Candy $ Means More $ for Your Wishlist Items!</h3>
+                    <h3 id="candy-words">Are You Closer to Your Wish List Goals When You Save?</h3>
                 </div>
                 <div id="wishlist-div">
                     <h2>Wishlist Items</h2>

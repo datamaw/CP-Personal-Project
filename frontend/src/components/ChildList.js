@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import { Table } from 'react-bootstrap'
+import { Table, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import UserContext from '../contexts/UserContext'
 
@@ -24,7 +24,7 @@ function ChildList(props) {
   
     return (
       <div>
-        <Table striped bordered hover>
+        <Table striped bordered hover variant="dark">
           <thead>
             <tr>
               {/* <th>#</th> */}

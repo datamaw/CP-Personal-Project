@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Table } from 'react-bootstrap'
+import { Table, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 function WishList(props) {
@@ -16,11 +16,10 @@ function WishList(props) {
                     <h4> { item.item_name }</h4>
                     <h5>Store: { item.item_location }</h5>
                     <h5>{ item.item_name } Price: ${ item.item_price }</h5>
-                    {/* <h5>{ item.item_name } Looks Like This:</h5> */}
                     {/* <img src={ item.item_image } /> */}
                     <h5>Date Added: { item.date_added }</h5>
             
-                    <Link to={`/cashandcandy/wishlists/${item.id}/item/${item.id}`}><button>Edit</button></Link>
+                    <Link to={`/cashandcandy/wishlists/${item.id}/item/${item.id}`}><Button variant="success">Edit</Button></Link>
                     {/* <Link to={`/wishlists/${wishList.id}/item/${item.id}/update`} state={{item}}><button>Update Item</button></Link>
                     <Link to={`/wishlists/${wishList.id}/item/${item.id}/delete`}><button>Delete Item</button></Link> */}
                     <hr/>

@@ -2,7 +2,6 @@
 
 const BASE_URL = "https://cashandcandy-backend.herokuapp.com/cashandcandy/"
 
-
 //cashandcandy
 const tryCatchFetch = async (url, init=null ) => {
     try {
@@ -23,22 +22,43 @@ const tryCatchFetch = async (url, init=null ) => {
     }
 }
 
-const fetchChildList = async (props) => {
+const fetchChildList = async (childObj) => {
+    let token = await localStorage.getItem("auth-token") 
     const url = BASE_URL + 'child'
-    return await tryCatchFetch(url)
+    const init = {
+        "method": "GET",
+        "headers": {
+        "Content-type": "application/json",
+        "Authorization": `JWT ${token}`
+        },
+        body: JSON.stringify(childObj)
+    }
+    return await tryCatchFetch(url, init)
+    
 }
 
-const fetchChild = async (childID) => {
+const fetchChild = async (childID, childObj) => {
+    let token = await localStorage.getItem("auth-token") 
     const url = BASE_URL + 'child/' + `${childID}`
-    return await tryCatchFetch(url)
+    const init = {
+        "method": "GET",
+        "headers": {
+        "Content-type": "application/json",
+        "Authorization": `JWT ${token}`
+        },
+        // body: JSON.stringify(childObj)
+    }
+    return await tryCatchFetch(url, init)
 }
 
 const addChild = async (childObj) => {
+    let token = await localStorage.getItem("auth-token")
     const url = BASE_URL + 'child/'
     const init = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
+        "method": "POST",
+        "headers": {
+            "Content-type": "application/json",
+            "Authorization": `JWT ${token}`
         },
         body: JSON.stringify(childObj)
     }
@@ -46,11 +66,13 @@ const addChild = async (childObj) => {
 }
 
 const updateChild = async (childObj, id) => {
+    let token = await localStorage.getItem("auth-token")
     const url = BASE_URL + `child/${id}/`
     const init = {
         method: "PUT",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorization": `JWT ${token}`
         },
         body: JSON.stringify(childObj)
     }
@@ -58,11 +80,13 @@ const updateChild = async (childObj, id) => {
 }
 
 const deleteChild = async (id) => {
+    let token = await localStorage.getItem("auth-token")
     const url = BASE_URL + `child/${id}/`
     const paramsObj = {
       method: "DELETE",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": `JWT ${token}`
       }
     }
     return await tryCatchFetch(url, paramsObj)
@@ -70,26 +94,52 @@ const deleteChild = async (id) => {
 
 
 const fetchAllWishLists = async () => {
+    let token = await localStorage.getItem("auth-token")
     const url = BASE_URL + 'wish-list/'
-    return await tryCatchFetch(url)
+    const init = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `JWT ${token}`
+        }
+      }
+    return await tryCatchFetch(url, init)
 }
 
 const fetchWishList = async (id) => {
+    let token = await localStorage.getItem("auth-token")
     const url = BASE_URL + `wish-list/${id}/`
-    return await tryCatchFetch(url)
+    const init = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `JWT ${token}`
+        }
+      }
+    return await tryCatchFetch(url, init)
 }
 
 const fetchWishItem = async (itemID) => {
+    let token = await localStorage.getItem("auth-token")
     const url = BASE_URL + 'item/' + `${itemID}`
-    return await tryCatchFetch(url)
+    const init = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `JWT ${token}`
+        }
+      }
+    return await tryCatchFetch(url, init)
 }
 
 const addWishItem = async (itemObj) => {
+    let token = await localStorage.getItem("auth-token")
     const url = BASE_URL + `item/`
     const paramsObj = {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorization": `JWT ${token}`
         },
         body: JSON.stringify(itemObj)
     }
@@ -97,11 +147,13 @@ const addWishItem = async (itemObj) => {
 }
 
 const updateItem = async (taskObj, id) => {
+    let token = await localStorage.getItem("auth-token")
     const url = BASE_URL + `item/${id}/`
     const paramsObj = {
       method: "PUT",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": `JWT ${token}`
       },
       body: JSON.stringify(taskObj)
     }
@@ -109,11 +161,13 @@ const updateItem = async (taskObj, id) => {
 }
 
 const deleteItem = async (id) => {
+    let token = await localStorage.getItem("auth-token")
     const url = BASE_URL + `item/${id}/`
     const paramsObj = {
       method: "DELETE",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": `JWT ${token}`
       }
     }
     return await tryCatchFetch(url, paramsObj)

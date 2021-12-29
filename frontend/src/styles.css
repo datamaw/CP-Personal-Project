@@ -48,7 +48,7 @@
 }
 
 #snack-layout {
-    height: 365px;
+    height: 390px;
     display: flex;
     justify-content: space-evenly;
     margin-right: 40x;
@@ -115,7 +115,9 @@
 
 #wishlist-div {
     width: 350px;
-    height: 350px;
+    height: 400px;
+    border: 10px dotted white;
+    padding: 5px;
 }
 
 #go-to-wishlists-button {
@@ -130,7 +132,9 @@
 }
 
 #all-wishlists-page {
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
     background:seashell;
     height: 1000px;
 }
@@ -197,7 +201,7 @@
   }
 
   #parent-page {
-    background-color:lightsteelblue;
+    background-color:white;
   }
 
   .spend-words {
@@ -210,8 +214,32 @@
 
   #candy-words {
       color:red;
+      border: oldlace;
+      border-block: 5px;
   }
 
   .wish-item-color {
       color: white
+  }
+
+  #earned-title{
+      color: white;
+  }
+
+  #child-update-buttons {
+      display: flex;
+      justify-content:center;
+  }
+
+  .need-some-space {
+      height: 10px;
+      width: 15px
+  }
+
+  #welcome-page-banner {
+      margin-left: 260px;
+      margin-top: 5px;
+      height: 120px;
+      width: 200px;
+      border: 10px dotted red;
   }

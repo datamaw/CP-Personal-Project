@@ -24,13 +24,13 @@ const SaveApp = () => {
           <h3 className="save-words">Save It</h3>
         <input
           type="number"
-          placeholder="Spending Money Amt"
+          placeholder="Money Saved"
           onChange={({ target }) => changeValues(target)}
           name="spending_money"
           />
         <input
           type="number"
-          placeholder="Candy Total"
+          placeholder="Remaining Spending $"
           onChange={({ target }) => changeValues(target)}
           name="candy_money"
           />

@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import React from 'react';
+import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import UserAPI from '../api/UserAPI'
 
@@ -25,7 +26,7 @@ function LoginPage({ handleLogin, isLoggedIn, handleLogout }) {
         <input type='text' placeholder='' name='username' />
         <label>Password:</label>
         <input type='password' name='password' />
-        <button type='submit' >Submit</button>
+        <Button variant="success" type='submit' >Submit</Button>
       </form>
       <div>
         <Link to='/cashandcandy'>Home</Link>

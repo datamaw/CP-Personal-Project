@@ -93,7 +93,7 @@ function App() {
           <Route exact path="/cashandcandy/parents/:childID" element={ <ChildViewPage />} /> 
           <Route exact path="/cashandcandy/parents/:childID/delete" element={ <DeleteChild /> } />
           <Route exact path="/cashandcandy/parents" element={ <Parents />} />
-          <Route exact path="/cashandcandy/parents/:childID/update" element={ <ModifyChild />} />
+          <Route exact path="/cashandcandy/parents/:childID/update" element={ <ModifyChild user={user}/>} />
           <Route exact path="/cashandcandy/wishlists/" element={ <WishListAllPage />} />
           <Route exact path="/cashandcandy/wishlists/:listID/" element={ <WishlistPage />} />
           <Route exact path="/cashandcandy/wishlists/:listID/item/:itemID" element={ <WishItemPage />} />

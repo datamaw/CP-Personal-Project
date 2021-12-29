@@ -1,12 +1,17 @@
-import React, { Component, useState } from 'react'
+import React, { Component, useState, useEffect } from 'react'
 import { Button } from 'react-bootstrap'
 import BackendAPI from '../api/BackendAPI.js'
 import { useNavigate, useParams, useLocation } from 'react-router-dom'
 // import UserContext from '../contexts/UserContext.js'
 
 function ModifyChildPage(props) {
+
+  //router prop
+  
+
   //states
   const [child, setChild] = useState(null)
+  const [user, setUser] = useState(null)
 
   //router props
   const params = useParams()
@@ -17,7 +22,6 @@ function ModifyChildPage(props) {
   const initialChild = location.state && location.state.child
   const action = initialChild ? "Update" : "Add"
 
-
   //handlers
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -25,7 +29,7 @@ function ModifyChildPage(props) {
     const childObject = {
       first_name: event.target.elements[0].value,
       age: event.target.elements[1].value,
-      user: params.userID  //event.target.elements[2].value
+      user: 1
     }
     console.log(childObject)
 
@@ -51,9 +55,9 @@ function ModifyChildPage(props) {
             <input defaultValue={initialChild && initialChild.age} class="form-control" id="child-age" placeholder="Enter child age"/>
           </div>
 
-          <button variant="secondary" type="submit">
+          <Button variant="success" type="submit">
             Submit
-          </button>
+          </Button>
         </form>
       </div>
     )

@@ -2,6 +2,7 @@ import Child from "../components/Child"
 import { useState, useEffect } from "react"
 import { useParams, Link }  from "react-router-dom"
 import BackendAPI from "../api/BackendAPI"
+import {Button} from "react-bootstrap"
 
 function ChildViewPage(props) {
   // state
@@ -28,14 +29,19 @@ function ChildViewPage(props) {
     <div>
       <h1>Child Info</h1>
       <hr />
-        { child && <Link to={`/cashandcandy/parents/${ child.id }/update`} state={{child}}><button>Update Child Info</button></Link> }
+      <div id="child-update-buttons">
+        { child && <Link to={`/cashandcandy/parents/${ child.id }/update`} state={{child}}><Button variant="success">Update Child Info</Button></Link> }
         <br/>
+        <div className="need-some-space">
+
+        </div>
         <br/>
-        { child && <Link to={`/cashandcandy/parents/${ child.id }/delete`}><button>Delete Child Account</button></Link> }
+        { child && <Link to={`/cashandcandy/parents/${ child.id }/delete`}><Button variant="danger">Delete Child Account</Button></Link> }
+        </div>
       <hr />
       { child && <Child child={child} />}
       <br/>
-      { child && <Link to={`/cashandcandy/parents`}><button>Nevermind - Back to Parent Control Board</button></Link> }
+      { child && <Link to={`/cashandcandy/parents`}><Button variant="secondary">Nevermind - Back to Parent Control Board</Button></Link> }
     </div>
     
   )

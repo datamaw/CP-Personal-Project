@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { Button } from 'react-bootstrap'
 import { signupUser } from '../api/UserAPI';
 
 const SignupPage = (props) => {
@@ -29,7 +30,7 @@ const SignupPage = (props) => {
         <input type='text' placeholder='' name='username' />
         <label>Password:</label>
         <input type='password' name='password' />
-        <button type='submit' >Sign Up</button>
+        <Button variant="primary" type='submit' >Sign Up</Button>
       </form>
       <div>
         <Link to='/cashandcandy'>Home</Link>

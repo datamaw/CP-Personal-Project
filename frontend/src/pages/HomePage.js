@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect, useContext } from "react"
+import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import BackendAPI from "../api/BackendAPI"
 import ChildList from '../components/ChildList';
@@ -7,7 +8,6 @@ import UserContext from '../contexts/UserContext';
 
 import "../styles.css";
 import LoginPage from './LoginPage';
-// const HomePage = ({ isLoggedIn, user, handleLogout }) => {
 
 function HomePage({ isLoggedIn, user, handleLogout }) {
 
@@ -33,15 +33,17 @@ function HomePage({ isLoggedIn, user, handleLogout }) {
   if (isLoggedIn) {
     return (
       <div>
-        <h1>Welcome!</h1>
-        <h2>You are logged in as <span className="user">{user}</span></h2>
+        <div id="welcome-page-banner">
+          <h1>Welcome, {user}!</h1>
+        </div>
+        {/* <h2>You are logged in as <span className="user">{user}</span></h2> */}
         <>
         <img src="https://w7.pngwing.com/pngs/196/872/png-transparent-lollipop-eating-candy-graphy-child-eating-food-face-toddler.png" className="homephoto" alt="lollipop" />
       </>
       <>
       <ChildList childList={childList} />
       </>
-      <button onClick={handleLogout}>Logout</button>
+      <Button variant="danger" onClick={handleLogout}>Logout</Button>
       </div>
     )
   }
@@ -65,7 +67,7 @@ function HomePage({ isLoggedIn, user, handleLogout }) {
           </div>
         </div>
         :
-        <button onClick={handleLogout}>Logout</button>
+        <Button variant="danger" onClick={handleLogout}>Logout</Button>
       }
     </div>
   )

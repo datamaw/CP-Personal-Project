@@ -38,7 +38,7 @@ function WishListPage(props) {
             </div>
             <div>
                 <hr />
-                { wishList && <Link to={`/cashandcandy/wishlists/${wishList.id}/item/create`}><button>Add Item</button></Link> }
+                { wishList && <Link to={`/cashandcandy/wishlists/${wishList.id}/item/create`}><Button variant="primary">Add Item</Button></Link> }
                 <hr />
                 { wishList && < WishList wishList={wishList} /> }
             </div>
