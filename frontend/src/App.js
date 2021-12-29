@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useHistory } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -24,86 +24,70 @@ import SignupPage from './pages/SignupPage';
 import UserContext from './contexts/UserContext';
 
 //api
-import { getLoggedInUser, login } from './api/UserAPI';
+// import UserAPI from './api/UserAPI';
+import { login, getLoggedInUser } from './api/UserAPI';
 
 //router
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route, useNavigate, Navigate } from "react-router-dom"
 
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [user, setUser] = useState(null)
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState(null);
+  //router prop
+  
 
   useEffect(() => {
     const getUser = async () => {
-      if (localStorage.getItem("auth-user") !== 'null') {
-        let response = await getLoggedInUser(localStorage.getItem("auth-user"));
-        let data = await response.json();
+      if (localStorage.getItem("auth-token") != null) {
+        let data = await getLoggedInUser(localStorage.getItem("auth-token"))
+        console.log(data)
         if (data.username) {
-          setIsLoggedIn(true);
-          setUser(data);
+          setIsLoggedIn(true)
+          setUser(data.username)
         }
       }
     }
     if (!user) {
-      getUser();
+      getUser()
     }
   }, [user])
 
-  const handleLogin = async (evt) => {
-    evt.preventDefault();
-    let userObject = {
-      username: evt.target.username.value,
-      password: evt.target.password.value,
+
+  // async function handleLogin(e) {
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    let credentials = {
+      username: e.target.username.value,
+      password: e.target.password.value
     }
-    let response = await login(userObject);
-    let data = await response.json();
-    console.log(data)
+    // let response = await login(credentials)
+    // let data = await response.json();
+    let data = await login(credentials)
     if (data.token) {
-      localStorage.setItem("auth-user", `${data.token}`);
+      localStorage.setItem("auth-token", data.token)
       setIsLoggedIn(true);
       setUser(data.user);
-    }
+      // navigate("/cashandcandy")
+      }
   }
 
   const handleLogout = () => {
     localStorage.setItem("auth-user", null);
-    setIsLoggedIn(false);
-    setUser(null);
-  }
-
-  const renderLoginPage = () => {
-    return (
-      <LoginPage
-        isLoggedIn={isLoggedIn}
-        handleLogin={handleLogin}
-        handleLogout={handleLogout}
-        user={user}
-      />
-    )
-  }
-
-  const renderHomePage = () => {
-    return (
-      <HomePage
-        isLoggedIn={isLoggedIn}
-        user={user}
-        handleLogout={handleLogout}
-      />
-    )
+    setIsLoggedIn(false)
+    setUser(null)
   }
 
   return (
     <div className="App">
       <BrowserRouter>
         <Navbar />
-        {/* <UserContext.Provider value={user}> */}
         <Routes>
-          {/* <Route exact path="/cashandcandy" element={ <HomePage /> } /> */}
-          <Route exact path="/cashandcandy" render={renderHomePage()} /> 
-          <Route exact path="/login" render={renderLoginPage()} />
-          <Route exact path="/signup" component={SignupPage()} />
+          <Route exact path="/cashandcandy" element={ <HomePage isLoggedIn={isLoggedIn} user={user} handleLogout={handleLogout}/> } />
+          {/* <Route exact path="/cashandcandy" element={ <HomePage/> } />  */}
+          <Route exact path="/login" element={ <LoginPage handleLogout={handleLogout} isLoggedIn={isLoggedIn} handleLogin={handleLogin} user={user}/> } />
+          <Route exact path="/signup" element={ <SignupPage user={ user }/> } />
           <Route exact path="/cashandcandy/:childID" element={ <KidMainPage />} />
           <Route exact path="/cashandcandy/parents/addchild" element={ <ModifyChild />} />
           <Route exact path="/cashandcandy/parents/:childID" element={ <ChildViewPage />} /> 
@@ -118,9 +102,7 @@ function App() {
           <Route path="/cashandcandy/wishlists/:listID/item/:itemID/delete" element={<DeleteItemPage />} />
           {/* <Route exact path="/cashandcandy/allowance" element={ <AllowanceListPage/>} /> */}
         </Routes>
-        {/* </UserContext.Provider> */}
       </BrowserRouter>
- 
     </div>
   );
 }

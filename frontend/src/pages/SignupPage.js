@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { signupUser } from '../api/UserAPI';
 
 const SignupPage = (props) => {
-  const { history } = props;
+//   // const { history } = props;
   const handleSignup = async (evt) => {
     evt.preventDefault();
     let userObject = {
@@ -14,9 +14,10 @@ const SignupPage = (props) => {
     let data = await response.json();
     if (data.error) {
       console.log('there was an error signing up');
-    } else {
-      history.push('/login');
     }
+    // else {
+    //   // history.push('/login');
+    // }
 
   }
 
@@ -31,7 +32,7 @@ const SignupPage = (props) => {
         <button type='submit' >Sign Up</button>
       </form>
       <div>
-        <Link to='/'>Home</Link>
+        <Link to='/cashandcandy'>Home</Link>
       </div>
       <div>
         <Link to='/login'>Login</Link>

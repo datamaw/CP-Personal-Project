@@ -8,6 +8,7 @@ import CalcApp from '../components/Calculator/Calculator'
 import SpendApp from '../components/Spend'
 import SaveApp from '../components/Save'
 import { FaCreativeCommonsSamplingPlus } from 'react-icons/fa'
+import MoneyAmountApp from '../components/MoneyAmount'
 // import MyScreen from '../components/MyCalc/MyScreen'
 // import ButtonBox from "./ButtonBox";
 // import Button from "./Button";
@@ -100,75 +101,6 @@ function KidMainPage(props) {
 
     getWishList()
   }, [child])  // empty array - only run on render
-
-    //calculator
-    // const numClickHandler = (e) => {
-    //     e.preventDefault();
-    //     const value = e.target.innerHTML;
-    
-    //     if (removeSpaces(calc.num).length < 16) {
-    //         setCalc({
-    //         ...calc,
-    //         num:
-    //             calc.num === 0 && value === "0"
-    //             ? "0"
-    //             : calc.num % 1 === 0
-    //             ? Number(calc.num + value)
-    //             : calc.num + value,
-    //         res: !calc.sign ? 0 : calc.res,
-    //         });
-    //     }
-    // };
-
-    // const signClickHandler = (e) => {
-    //     e.preventDefault();
-    //     const value = e.target.innerHTML;
-      
-    //     setCalc({
-    //       ...calc,
-    //       sign: value,
-    //       res: !calc.res && calc.num ? calc.num : calc.res,
-    //       num: 0,
-    //     });
-    //   };
-
-    // const equalsClickHandler = () => {
-    // if (calc.sign && calc.num) {
-    //     const math = (a, b, sign) =>
-    //     sign === "+"
-    //         ? a + b
-    //         : sign === "-"
-    //         ? a - b
-    //         : sign === "X"
-    //         ? a * b
-    //         : a / b;
-
-    //     setCalc({
-    //     ...calc,
-    //     res:
-    //         calc.num === "0" && calc.sign === "/"
-    //         ? "Can't divide with 0"
-    //         : toLocaleString(
-    //             math(
-    //                 Number(removeSpaces(calc.res)),
-    //                 Number(removeSpaces(calc.num)),
-    //                 calc.sign
-    //             )
-    //             ),
-    //     sign: "",
-    //     num: 0,
-    //     });
-    //     }
-    // };
-
-    // const resetClickHandler = () => {
-    //     setCalc({
-    //         ...calc,
-    //         sign: "",
-    //         num: 0,
-    //         res: 0,
-    //     });
-    // };
 
     //render
     const renderDogPic = () => {
@@ -313,7 +245,7 @@ function KidMainPage(props) {
                 { renderDogPic() }
                 </div>
                 <div id="chalkboard">
-                    <p>Watch the video ---></p>
+                    <p>Watch the video -></p>
                     <p> then join Fido in choosing candy to buy. The more candy you add, the less money you will have for your wishlist items!</p>
                 </div>
                 <div>
@@ -324,10 +256,17 @@ function KidMainPage(props) {
                 { renderProducts() }
                 <hr/>
             </div>
+            <div>
+                
+            </div>
             <div id="calculating-area">
                 <div id="calculator-div">
                     <h2>$$ Candy Shop Total $$</h2>
                     <CalcApp />
+                    <br/>
+                    <br/>
+                    <h2>You Have This Much $</h2>
+                    <MoneyAmountApp/>
                 </div>
                 <div id="comparison-div">
                     <h4>SAVE OR SPEND?</h4>

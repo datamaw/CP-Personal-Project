@@ -1,28 +1,7 @@
+
+
 const BASE_URL = "https://cashandcandy-backend.herokuapp.com/cashandcandy/"
 
-// const BASE_URL = "http://127.0.0.1:8000/cashandcandy/"
-
-//login
-// async function login(credentials) {
-//     try {
-//         let init = {
-//             method: "POST",
-//             headers: {
-//                 "Content-Type": "application/JSON"
-//             },
-//             "body": JSON.stringify(credentials)
-//         }
-//         let response = fetch(BASE_URL + "login", init)
-//         if (response.ok) {
-//             let data = await response.json()
-//             return data
-//         }
-//     }
-//     catch (error) {
-//         console.error(error)
-//         return {}
-//     }
-// }
 
 //cashandcandy
 const tryCatchFetch = async (url, init=null ) => {
@@ -44,7 +23,7 @@ const tryCatchFetch = async (url, init=null ) => {
     }
 }
 
-const fetchChildList = async () => {
+const fetchChildList = async (props) => {
     const url = BASE_URL + 'child'
     return await tryCatchFetch(url)
 }

@@ -1,13 +1,18 @@
 import React from 'react';
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import { Link } from 'react-router-dom';
 import BackendAPI from "../api/BackendAPI"
 import ChildList from '../components/ChildList';
+import UserContext from '../contexts/UserContext';
 
 import "../styles.css";
+import LoginPage from './LoginPage';
 // const HomePage = ({ isLoggedIn, user, handleLogout }) => {
 
 function HomePage({ isLoggedIn, user, handleLogout }) {
+
+  // const user = useContext(UserContext)
+
   //states
   const [childList, setChildList] = useState([])
     
@@ -25,21 +30,29 @@ function HomePage({ isLoggedIn, user, handleLogout }) {
     getChildList()
   }, [])  // empty array - only run on render
 
+  if (isLoggedIn) {
+    return (
+      <div>
+        <h1>Welcome!</h1>
+        <h2>You are logged in as <span className="user">{user}</span></h2>
+        <>
+        <img src="https://w7.pngwing.com/pngs/196/872/png-transparent-lollipop-eating-candy-graphy-child-eating-food-face-toddler.png" className="homephoto" alt="lollipop" />
+      </>
+      <>
+      <ChildList childList={childList} />
+      </>
+      <button onClick={handleLogout}>Logout</button>
+      </div>
+    )
+  }
+
   return (
     
     <div>
-      <h1>Welcome!</h1>
-      <div>
+      {/* <h1>Welcome!</h1>
+      <h2>You are logged in as <span className="user">{user}</span></h2> */}
        <h1></h1>
-       <img src="https://w7.pngwing.com/pngs/196/872/png-transparent-lollipop-eating-candy-graphy-child-eating-food-face-toddler.png" className="homephoto" alt="lollipop" />
-      </div>
-      <ChildList childList={childList} />
-      {/* {
-        user &&
-        <div>
-          Hi {user.username}
-        </div>
-      }
+
       {
         !isLoggedIn
         ?
@@ -53,7 +66,7 @@ function HomePage({ isLoggedIn, user, handleLogout }) {
         </div>
         :
         <button onClick={handleLogout}>Logout</button>
-      } */}
+      }
     </div>
   )
 }
