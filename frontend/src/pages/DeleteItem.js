@@ -10,7 +10,7 @@ function DeleteItemPage(props) {
   
   // handler
   const deleteItem = async () => {
-    alert(params.itemID)
+    alert("Deleted Item")
     const data = await BackendAPI.deleteItem(params.itemID)
     if (data) {
       navigate(`/cashandcandy/wishlists/${params.listID}/`)

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 const SaveApp = () => {
     const [input_values, set_inputvalues] = useState({
       spending_money: 0,
-      candy_money: 0,
+      allowance: 0,
     });
   
     const [total, set_total] = useState(0);
@@ -24,15 +24,15 @@ const SaveApp = () => {
           <h3 className="save-words">Save It</h3>
         <input
           type="number"
-          placeholder="Money Saved"
+          placeholder="Spending $ Total"
           onChange={({ target }) => changeValues(target)}
           name="spending_money"
           />
         <input
           type="number"
-          placeholder="Remaining Spending $"
+          placeholder="+ Weekly Allowance"
           onChange={({ target }) => changeValues(target)}
-          name="candy_money"
+          name="allowance"
           />
           <h2>${total}</h2>
           {/* <h4 className="save-words">You Could Have This Much Next Week</h4> */}

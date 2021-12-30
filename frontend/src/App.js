@@ -20,6 +20,8 @@ import DeleteItemPage from './pages/DeleteItem';
 import ChildViewPage from './pages/ChildViewPage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
+import ModifyWishlist from './pages/ModifyWishlist';
+import DeleteWishlist from './pages/DeleteWishlist'
 
 //contexts
 import UserContext from './contexts/UserContext';
@@ -61,20 +63,19 @@ function App() {
   console.log("username:", user)
   console.log("user ID:", userID)
 
-  // async function handleLogin(e) {
   const handleLogin = async (e) => {
     e.preventDefault();
     let credentials = {
       username: e.target.username.value,
       password: e.target.password.value
     }
-    // let response = await login(credentials)
-    // let data = await response.json();
+
     let data = await login(credentials)
     if (data.token) {
       localStorage.setItem("auth-token", data.token)
       setIsLoggedIn(true);
       setUser(data.user);
+      localStorage.setItem("auth-user", data.user.username)
       localStorage.setItem("user info", data.user.id)
       // navigate("/cashandcandy")
       }
@@ -104,7 +105,10 @@ function App() {
           <Route exact path="/cashandcandy/parents/:childID/update" element={ <ModifyChild userID={userID}/>} />
           <Route exact path="/cashandcandy/wishlists/" element={ <WishListAllPage />} />
           <Route exact path="/cashandcandy/wishlists/:listID/" element={ <WishlistPage />} />
+          <Route exact path="/cashandcandy/wishlists/addwishlist" element={ <ModifyWishlist />} />
+          <Route exact path="/cashandcandy/wishlists/:listID/delete" element={ <DeleteWishlist/>} />
           <Route exact path="/cashandcandy/wishlists/:listID/item/:itemID" element={ <WishItemPage />} />
+          <Route path="/cashandcandy/wishlists/:listID/update" element={<ModifyWishlist />} />
           <Route exact path="/cashandcandy/wishlists/:listID/item/create" element={ <ModifyWishItemPage />} />
           <Route path="/cashandcandy/wishlists/:listID/item/:itemID/update" element={<ModifyWishItemPage />} />
           <Route path="/cashandcandy/wishlists/:listID/item/:itemID/delete" element={<DeleteItemPage />} />

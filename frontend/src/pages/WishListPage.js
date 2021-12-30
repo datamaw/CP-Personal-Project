@@ -36,12 +36,20 @@ function WishListPage(props) {
                     <Button id="go-to-wishlists-button" variant="secondary">Go Back to View All Wishlists</Button>
                 </Link>
             </div>
-            <div>
+            <div id="wishlist-edit-buttons">
                 <hr />
+                <div>
                 { wishList && <Link to={`/cashandcandy/wishlists/${wishList.id}/item/create`}><Button variant="primary">Add Item</Button></Link> }
+                </div>
+                <div>
+                <Link to={`/cashandcandy/wishlists/${params.listID}/update`}><Button variant="success">Edit List</Button></Link>
+                </div>
+                <div>
+                <Link to={`/cashandcandy/wishlists/${params.listID}/delete`}><Button variant="danger">Delete List</Button></Link>
+                </div>
+            </div>
                 <hr />
                 { wishList && < WishList wishList={wishList} /> }
-            </div>
         </div>
     )
 }

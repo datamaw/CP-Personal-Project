@@ -26,8 +26,8 @@ function ModifyWishItemPage(props) {
             item_location: event.target.elements[1].value,
             // item_id: event.target.elements[2].value,
             item_price: event.target.elements[2].value,
-            // item_image: event.target.elements[4].value,
-            date_added: event.target.elements[3].value,
+            item_image: event.target.elements[3].value,
+            date_added: event.target.elements[4].value,
             // purchased: event.target.elements[5].value
         }
         
@@ -52,7 +52,7 @@ function ModifyWishItemPage(props) {
                     {/* <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> */}
                 </div>
                 <div class="form-group">
-                    <label>Store Name</label>
+                    <label>Location</label>
                     <input defaultValue={initialItem && initialItem.item_location} class="form-control" id="store-name" placeholder="Enter store name"/>
                 </div>
                 {/* <div class="form-check">
@@ -63,10 +63,10 @@ function ModifyWishItemPage(props) {
                     <label>Price</label>
                     <input defaultValue={initialItem && initialItem.item_price} type='number' class="form-control" id="item-price" placeholder="Enter item price"/>
                 </div>
-                {/* <div class="form-check">
+                <div class="form-check">
                     <label>Item Image</label>
-                    <input type="file" class="form-control" id="item-image" placeholder="Enter item image"/>
-                </div> */}
+                    <input defaultValue={initialItem && initialItem.item_image} class="form-control" id="item-image" placeholder="Enter item image url"/>
+                </div>
                 <div class="form-check">
                     <label>Date Added</label>
                     <input defaultValue={initialItem && initialItem.date_added} class="form-control" id="item-added-date" placeholder="Enter today's date MM-DD-YYYY"/>

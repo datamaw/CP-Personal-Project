@@ -172,7 +172,48 @@ const deleteItem = async (id) => {
     }
     return await tryCatchFetch(url, paramsObj)
 }
-  
+
+const addWishlist = async (listObj) => {
+    let token = await localStorage.getItem("auth-token")
+    const url = BASE_URL + `wish-list/`
+    const paramsObj = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `JWT ${token}`
+        },
+        body: JSON.stringify(listObj)
+    }
+    return await tryCatchFetch(url, paramsObj)
+}
+
+const updateWishlist = async (listObj, id) => {
+    let token = await localStorage.getItem("auth-token")
+    const url = BASE_URL + `wish-list/${id}/`
+    const paramsObj = {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `JWT ${token}`
+      },
+      body: JSON.stringify(listObj)
+    }
+    return await tryCatchFetch(url, paramsObj)
+}
+
+const deleteWishlist = async (id) => {
+    let token = await localStorage.getItem("auth-token")
+    const url = BASE_URL + `wish-list/${id}/`
+    const paramsObj = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `JWT ${token}`
+      }
+    }
+    return await tryCatchFetch(url, paramsObj)
+}
+
 
 const exportItems = {
     // login,
@@ -186,7 +227,10 @@ const exportItems = {
     deleteItem,
     updateItem,
     updateChild,
-    deleteChild
+    deleteChild,
+    addWishlist,
+    updateWishlist,
+    deleteWishlist
 }
 
 export default exportItems

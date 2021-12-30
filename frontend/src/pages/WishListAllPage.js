@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import {Button} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import BackendAPI from "../api/BackendAPI"
 
@@ -38,6 +39,7 @@ const renderWishLists = () => {
             </div>
             <br/>
             <h1>Your Family's Wishlists</h1>
+            <Link to={"/cashandcandy/wishlists/addwishlist"}><Button variant="secondary">New Wishlist</Button></Link>
             <hr/>
             <div>
                 <h5>{ renderWishLists() }</h5>

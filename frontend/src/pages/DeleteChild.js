@@ -10,7 +10,7 @@ function DeleteChildPage(props) {
   
   // handler
   const deleteChildAccount = async () => {
-    alert(params.childID)
+    alert("Deleted Child Account")
     const data = await BackendAPI.deleteChild(params.childID)
     if (data) {
       navigate(`/cashandcandy/parents`)

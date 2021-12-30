@@ -84,7 +84,7 @@ class WishListSerializer(ModelSerializer):
         model = WishList
         fields = ["id", "list_name", "items", "child"]
 
-    items = ItemSerializer(many=True)
+    items = ItemSerializer(many=True, read_only=True)
 
     #display child name instead of id
     def to_representation(self, list):

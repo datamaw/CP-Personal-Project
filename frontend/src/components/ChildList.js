@@ -9,9 +9,18 @@ function ChildList(props) {
     const renderChildList = () => {
       if (!props.childList)
         return null
-  
-      console.log(props.childList)
-      return props.childList.map((child, index) => {
+
+      const username = localStorage.getItem("auth-user")
+
+      let filtered = props.childList.filter(function (child) {
+        console.log(child.user)
+        console.log(props.user)
+          return child.user === username;
+      })
+
+      console.log("filtered children",filtered)
+
+      return filtered.map((child, index) => {
         return (
           <tr key={index}>
             {/* <td>{ child.id }</td> */}

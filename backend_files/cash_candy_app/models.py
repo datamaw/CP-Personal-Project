@@ -21,10 +21,10 @@ class WishList(models.Model):
 class Item(models.Model):
     item_name = models.CharField(max_length=64, null=False)
     wishlist = models.ForeignKey(WishList, related_name="items", on_delete=models.CASCADE)  #one list to may items - foreignkey
-    item_location = models.CharField(max_length=64)
+    item_location = models.TextField()
     item_id = models.CharField(max_length=64, null=True)
     item_price = models.DecimalField(max_digits=6, decimal_places=2, null=False)
-    item_image = models.ImageField(null=True, blank=True)
+    item_image = models.TextField(null=True, blank=True)
     date_added = models.CharField(max_length=32, null=True, blank=True)
     purchased = models.BooleanField(default=False)
 
