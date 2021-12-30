@@ -143,7 +143,7 @@ function KidMainPage(props) {
         const fifthProduct = Math.floor(Math.random()*50+1)
 
         try{
-            if (!product || !product.data || !product.data[firstProduct].description || !product.data[secondProduct].description || !product.data[thirdProduct].description || !product.data[fourthProduct].description || !product.data[fifthProduct].description) {
+            if (!product) {
                 console.log("no products")
 
                 return (
@@ -269,9 +269,16 @@ function KidMainPage(props) {
                     <h2>$$ Candy Shop Total $$</h2>
                     <CalcApp />
                     <br/>
+                    {/* <h2 id="earned-title">You Earned This Much $</h2>
+                    <MoneyAmountApp/> */}
+                    <h6>* Use the calculator to add up your candy total.</h6>
+                    <h6>* Add how much spending money you have to Spend It.</h6>
+                    <h6>* Add the candy total below that with a (-) sign.</h6>
+                    <h6>* See how much spending money is left.</h6>
                     <br/>
-                    <h2 id="earned-title">You Earned This Much $</h2>
-                    <MoneyAmountApp/>
+                    <h6>* Enter your savings total in Save It.</h6>
+                    <h6>* Enter how much spending money is left to see your new total.</h6>
+                    
                 </div>
                 <div id="comparison-div">
                     <h4>SAVE OR SPEND?</h4>

@@ -60,10 +60,17 @@ function HomePage({ isLoggedIn, user, handleLogout }) {
         ?
         <div>
           <div>
-            <Link to='/login'>Login</Link>
+            <br/>
+            <h2>Welcome! Please Log In.</h2>
+            <Link to='/login'><Button variant="success">Login</Button></Link>
           </div>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
           <div>
-            <Link to='/signup'>Signup</Link>
+            <h2>Don't have an account? Sign up here!</h2>
+            <Link to='/signup'><Button variant="primary">Sign Up</Button></Link>
           </div>
         </div>
         :

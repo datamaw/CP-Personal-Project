@@ -30,7 +30,7 @@ const SpendApp = () => {
           />
         <input
           type="number"
-          placeholder="Negative Candy Total"
+          placeholder="Minus Candy Total"
           onChange={({ target }) => changeValues(target)}
           name="candy_money"
           />

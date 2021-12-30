@@ -3,20 +3,9 @@ import React from 'react';
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import UserAPI from '../api/UserAPI'
-
+import { Alert, useAlert } from 'react-alert'
 
 function LoginPage({ handleLogin, isLoggedIn, handleLogout }) {
-
-// const Login = ({isLoggedIn, handleLogout, handleLogin}) => {
-
-  // if (isLoggedIn) {
-  //   return <div>
-  //     <button onClick={handleLogout}>Logout</button>
-  //     <div>
-  //       <Link to='/'>Home</Link>
-  //     </div>
-  //   </div>
-  // }
 
   return (
     <div>
@@ -29,10 +18,13 @@ function LoginPage({ handleLogin, isLoggedIn, handleLogout }) {
         <Button variant="success" type='submit' >Submit</Button>
       </form>
       <div>
-        <Link to='/cashandcandy'>Home</Link>
+   
       </div>
       <div>
-        <Link to='/signup'>Signup</Link>
+        <br/>
+        <br/>
+        <h6>No Account?</h6>
+      <Link to='/signup'><Button variant="dark">Sign Up</Button></Link>
       </div>
     </div>
   );

@@ -43,14 +43,25 @@ const getLoggedInUser = async (token) => {
   }
 }
 
-const signupUser = (userObject) => {
-  return fetch('https://cashandcandy-backend.herokuapp.com/users/', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(userObject)
-  }).then(res => res)
+const signupUser = async (userObject) => {
+  try {
+    let init = {
+      "method": "POST",
+      "headers": {
+      "Content-type": "application/json"
+      },
+      "body": JSON.stringify(userObject)
+    }
+    console.log(init)
+    let response = await fetch("https://cashandcandy-backend.herokuapp.com/cashandcandy/users/", init)
+    console.log(response)
+    let data = await response.json()
+    console.log(data)
+    return data
+  }
+  catch(err) {
+    console.error(err)
+  }
 };
 
 export { login, getLoggedInUser, signupUser }

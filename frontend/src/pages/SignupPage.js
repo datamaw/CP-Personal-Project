@@ -1,9 +1,13 @@
 import React from 'react';
+import { Alert, useAlert } from 'react-alert'
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap'
 import { signupUser } from '../api/UserAPI';
 
 const SignupPage = (props) => {
+
+  const navigate = useNavigate()
+  const alert = useAlert()
 //   // const { history } = props;
   const handleSignup = async (evt) => {
     evt.preventDefault();
@@ -11,14 +15,14 @@ const SignupPage = (props) => {
       'username': evt.target.username.value,
       'password': evt.target.password.value,
     }
-    let response = await signupUser(userObject);
-    let data = await response.json();
+    let data = await signupUser(userObject);
     if (data.error) {
       console.log('there was an error signing up');
     }
-    // else {
-    //   // history.push('/login');
-    // }
+    else {
+      alert.show('User Account Successfully Created. Now You Can Log In.')
+      navigate('/login');
+    }
 
   }
 
@@ -32,11 +36,9 @@ const SignupPage = (props) => {
         <input type='password' name='password' />
         <Button variant="primary" type='submit' >Sign Up</Button>
       </form>
+      <br/>
       <div>
-        <Link to='/cashandcandy'>Home</Link>
-      </div>
-      <div>
-        <Link to='/login'>Login</Link>
+        <Link to='/login'><Button variant="dark">Login</Button></Link>
       </div>
     </div>
   );

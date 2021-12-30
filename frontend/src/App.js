@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useHistory } from 'react';
+
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -55,8 +56,9 @@ function App() {
     if (!user) {
       getUser()
     }
-  }, [user])
+  }, [])
 
+  console.log("username:", user)
   console.log("user ID:", userID)
 
   // async function handleLogin(e) {
@@ -73,6 +75,7 @@ function App() {
       localStorage.setItem("auth-token", data.token)
       setIsLoggedIn(true);
       setUser(data.user);
+      localStorage.setItem("user info", data.user.id)
       // navigate("/cashandcandy")
       }
   }
@@ -81,6 +84,7 @@ function App() {
     localStorage.setItem("auth-user", null);
     setIsLoggedIn(false)
     setUser(null)
+    setUserID(null)
   }
 
   return (

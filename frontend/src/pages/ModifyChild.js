@@ -10,8 +10,8 @@ function ModifyChildPage(props) {
   
 
   //states
-  const [child, setChild] = useState(null)
-  const [user, setUser] = useState(null)
+  // const [child, setChild] = useState(null)
+  // const [user, setUser] = useState(null)
 
   //router props
   const params = useParams()
@@ -21,15 +21,19 @@ function ModifyChildPage(props) {
   //derived values
   const initialChild = location.state && location.state.child
   const action = initialChild ? "Update" : "Add"
+  const id = localStorage.getItem("user info")
 
   //handlers
   const handleSubmit = async (event) => {
     event.preventDefault()
+    if (localStorage.getItem("user info") != null) {
+
+    }
 
     const childObject = {
       first_name: event.target.elements[0].value,
       age: event.target.elements[1].value,
-      user: props.userID
+      user: id
     }
     console.log(childObject)
 
