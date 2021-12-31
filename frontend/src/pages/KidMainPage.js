@@ -101,7 +101,7 @@ function KidMainPage(props) {
     }
 
     getWishList()
-  }, [child])  // empty array - only run on render
+  }, [child]) 
 
     //render
     const renderDogPic = () => {
@@ -110,13 +110,9 @@ function KidMainPage(props) {
 
         return (
             <div>
-            {/* <h5 className="kidpage">Let's Explore Together!</h5> */}
             <br/>
             <>
             <img className="dog-pic" src={ dogPic } alt="dog-pic"/>
-            {/* <Button variant="secondary"  onClick={getDogPic()}>
-                    Find a New Friend
-            </Button> */}
             </>
             </div>
         )
@@ -153,54 +149,53 @@ function KidMainPage(props) {
                 )
                 
            }
+           else{
+               return(
+                       <div id="entire-store">
+                           <hr/>
+                           <h3>Candy Shop</h3>
+                           <br/>
+      
+                           <h6 id="shop-subtitle">Add Up Your Total Candy Purchase Using the Calculator Below</h6>
+                           <hr/>
+                           <div id="snack-layout">
+                               <div className="pic-description">
+                                   <h6 className="product-description"> { product.data[firstProduct].description } </h6>
+                                   <img class="store-pics" src={ product.data[firstProduct].images[0].sizes[4].url} alt="first-pic" />
+                                   <br/>
+                                   <h3 className="product-button">${Math.floor(Math.random()*3+1)}</h3>              
+                               </div>
+                               <div className="pic-description">
+                                   <h6 className="product-description"> { product.data[secondProduct].description } </h6>
+                                   <img class="store-pics" src={ product.data[secondProduct].images[0].sizes[4].url} alt="second-pic" />
+                                   <h3 className="product-button">${Math.floor(Math.random()*3+1)}</h3> 
+                               </div>
+                               <div className="pic-description"> 
+                                   <h6 className="product-description"> { product.data[thirdProduct].description } </h6>
+                                   <img class="store-pics" src={ product.data[thirdProduct].images[0].sizes[4].url} alt="third-pic" />
+                                   <h3 className="product-button">${Math.floor(Math.random()*3+1)}</h3> 
+                               </div>
+                               <div className="pic-description">
+                                   <h6 className="product-description"> { product.data[fourthProduct].description } </h6>
+                                   <img class="store-pics" src={ product.data[fourthProduct].images[0].sizes[4].url} alt="fourth-pic" />
+                                   <h3 className="product-button">${Math.floor(Math.random()*3+1)}</h3> 
+                               </div>
+                               <div className="pic-description">
+                                   <h6 className="product-description"> { product.data[fifthProduct].description } </h6>
+                                   <img class="store-pics" src={ product.data[fifthProduct].images[0].sizes[4].url} alt="fifth-pic" />
+                                   <h3 className="product-button">${Math.floor(Math.random()*3+1)}</h3> 
+                               </div>          
+                           </div>    
+                       </div>
+                   )
+
+           }
          }  catch (error) {
             console.log(error)
             renderProducts()
          } 
 
-        if (!product.data[firstProduct].description || !product.data[secondProduct].description || !product.data[thirdProduct].description || !product.data[fourthProduct].description || !product.data[fifthProduct].description)
-            // renderProducts()
-            return null
 
-       return(
-            <div id="entire-store">
-            <hr/>
-            <h3>Candy Shop</h3>
-            <br/>
-
-            <h6 id="shop-subtitle">Add Up Your Total Candy Purchase Using the Calculator Below</h6>
-            <hr/>
-            <div id="snack-layout">
-                <div className="pic-description">
-                    <h6 className="product-description"> { product.data[firstProduct].description } </h6>
-                    <img class="store-pics" src={ product.data[firstProduct].images[0].sizes[4].url} alt="first-pic" />
-                    <br/>
-                    <h3 className="product-button">${Math.floor(Math.random()*5+1)}</h3>              
-                </div>
-                <div className="pic-description">
-                    <h6 className="product-description"> { product.data[secondProduct].description } </h6>
-                    <img class="store-pics" src={ product.data[secondProduct].images[0].sizes[4].url} alt="second-pic" />
-                    <h3 className="product-button">${Math.floor(Math.random()*5+1)}</h3> 
-                </div>
-                <div className="pic-description"> 
-                    <h6 className="product-description"> { product.data[thirdProduct].description } </h6>
-                    <img class="store-pics" src={ product.data[thirdProduct].images[0].sizes[4].url} alt="third-pic" />
-                    <h3 className="product-button">${Math.floor(Math.random()*5+1)}</h3> 
-                </div>
-                <div className="pic-description">
-                    <h6 className="product-description"> { product.data[fourthProduct].description } </h6>
-                    <img class="store-pics" src={ product.data[fourthProduct].images[0].sizes[4].url} alt="fourth-pic" />
-                    <h3 className="product-button">${Math.floor(Math.random()*5+1)}</h3> 
-                </div>
-                <div className="pic-description">
-                    <h6 className="product-description"> { product.data[fifthProduct].description } </h6>
-                    <img class="store-pics" src={ product.data[fifthProduct].images[0].sizes[4].url} alt="fifth-pic" />
-                    <h3 className="product-button">${Math.floor(Math.random()*5+1)}</h3> 
-                </div>          
-            </div>
-                
-            </div>
-        )
     }
     
     // const child_name = child.first_name
@@ -250,15 +245,19 @@ function KidMainPage(props) {
             <hr />
             <br />
             <div id="kidpagetopbody">
-                <div id="dog-div">
+                {/* <div id="dog-div">
                 { renderDogPic() }
-                </div>
+                </div> */}
                 <div id="chalkboard">
-                    <p>Watch the video with <input type="text" placeholder="Name the Dog!"/></p>
-                    <p> then explore the candy shop! Will you spend or save?</p>
+                    <p> </p>
+                    {/* <p>Watch the video with <input type="text" placeholder="Name the Dog!"/></p> */}
+                    <p> Watch the video, then explore the candy shop! Will you spend or save?</p>
+                    <div id="dog-div">
+                        { renderDogPic() }
+                    </div>
                 </div>
-                <div>
-                <iframe width="735" height="269" src="https://www.youtube.com/embed/NfurkrZEn3Q" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                <div id="youtube-div">
+                    <iframe width="735" height="269" src="https://www.youtube.com/embed/NfurkrZEn3Q" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                 </div>
             </div>
             <div>
@@ -289,9 +288,13 @@ function KidMainPage(props) {
                     
                 </div>
                 <div id="comparison-div">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
                     <h4>SAVE OR SPEND?</h4>
                     <SpendApp />
-                    <SaveApp />
+                    {/* <SaveApp /> */}
                     <br/>
                     <h4 id="candy-words">Are You Closer to Your Wish List Goals When You Save?</h4>
                 </div>

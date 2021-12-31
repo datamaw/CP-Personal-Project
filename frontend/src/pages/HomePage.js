@@ -12,6 +12,7 @@ import LoginPage from './LoginPage';
 function HomePage({ isLoggedIn, user, handleLogout }) {
 
   // const user = useContext(UserContext)
+  const username = localStorage.getItem("auth-user")
 
   //states
   const [childList, setChildList] = useState([])
@@ -34,7 +35,7 @@ function HomePage({ isLoggedIn, user, handleLogout }) {
     return (
       <div>
         <div id="welcome-page-banner">
-          <h1>Welcome, {user}!</h1>
+          <h1>Welcome, {username}!</h1>
         </div>
         {/* <h2>You are logged in as <span className="user">{user}</span></h2> */}
         <>
@@ -43,6 +44,8 @@ function HomePage({ isLoggedIn, user, handleLogout }) {
       <>
       <ChildList childList={childList} />
       </>
+      <br/>
+      <br/>
       <Button variant="danger" onClick={handleLogout}>Logout</Button>
       </div>
     )

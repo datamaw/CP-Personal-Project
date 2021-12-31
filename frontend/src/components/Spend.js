@@ -22,27 +22,42 @@ const SpendApp = () => {
     return (
       <div>
           <br/>
-          <h3 className="spend-words">Spend It</h3>
-        <input
-          type="number"
-          placeholder="Spending $ Total"
-          onChange={({ target }) => changeValues(target)}
-          name="saved_money"
-          />
-        <input
-          type="number"
-          placeholder="+ Weekly Allowance"
-          onChange={({ target }) => changeValues(target)}
-          name="spending_money"
-          />
-        <input
-          type="number"
-          placeholder="- Candy Total"
-          onChange={({ target }) => changeValues(target)}
-          name="candy_total"
-          />
-          <h2>${total}</h2>
-          {/* <h4 className="spend-words">Amount Left</h4> */}
+          {/* <h3 className="spend-words">Spend It</h3> */}
+          <div className="inline">
+            {/* <span> */}
+            <h6>Current Savings.</h6>
+            <input
+              type="number"
+              // placeholder="Spending $ Total"
+              onChange={({ target }) => changeValues(target)}
+              name="saved_money"
+              />
+            {/* </span> */}
+              <br/>
+          </div>
+          <div className="inline">
+              <h6>+ Weekly Allowance. </h6>
+            <input
+              type="number"
+              // placeholder="+ Weekly Allowance"
+              onChange={({ target }) => changeValues(target)}
+              name="spending_money"
+              />
+          </div>
+          <div className="inline">
+            <h6>- Calculator Total.</h6>
+            <input
+              type="number"
+              // placeholder="- Candy Total"
+              onChange={({ target }) => changeValues(target)}
+              name="candy_total"
+              />
+          </div>
+          <div id="total-amount-align">
+              <h2>${total}</h2>
+          </div>
+              {/* <h4 className="spend-words">Amount Left</h4> */}
+
       </div>
     );
   };

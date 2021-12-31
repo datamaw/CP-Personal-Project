@@ -7,6 +7,22 @@ import { Alert, useAlert } from 'react-alert'
 
 function LoginPage({ handleLogin, isLoggedIn, handleLogout }) {
 
+  const username = localStorage.getItem("auth-user")
+
+  if (isLoggedIn) {
+    return (
+      <div>
+        <div>
+          <h1>Successfully Logged In!</h1>
+          {/* <h1>{username && username}!</h1> */}
+          <hr/>
+        </div>
+        {/* <h2>You are logged in as <span className="user">{user}</span></h2> */}
+      <Button variant="danger" onClick={handleLogout}>Logout</Button>
+      </div>
+    )
+  }
+
   return (
     <div>
     <h1>Login Page</h1>

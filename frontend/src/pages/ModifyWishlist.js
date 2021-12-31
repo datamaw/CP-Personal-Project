@@ -10,8 +10,7 @@ function ModifyWishlist(props) {
   
 
   //states
-  // const [child, setChild] = useState(null)
-  // const [user, setUser] = useState(null)
+
 
   //router props
   const params = useParams()
@@ -26,9 +25,6 @@ function ModifyWishlist(props) {
   //handlers
   const handleSubmit = async (event) => {
     event.preventDefault()
-    // if (localStorage.getItem("user info") != null) {
-
-    // }
 
     const listObject = {
       list_name: event.target.elements[0].value,
@@ -52,10 +48,10 @@ function ModifyWishlist(props) {
             <label>Wishlist Name</label>
             <input defaultValue={initialWishlist && props.list_name} class="form-control" id="list-name" placeholder="Enter list name"/>
           </div>
-
           <div class="form-group">
             <label>Which Child is this For?</label>
             <input defaultValue={initialWishlist && props.child} class="form-control" id="child" placeholder="Enter child ID number"/>
+
           </div>
 
           <Button variant="success" type="submit">
